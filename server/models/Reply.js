@@ -5,8 +5,7 @@ const replySchema = new Schema(
     {
         replyContent: {
             type: String,
-            required: true,
-            maxlength: 280
+            required: true
         },
         username: {
             type: String,
@@ -16,7 +15,7 @@ const replySchema = new Schema(
             type: Date,
             default: Date.now,
             get: timestamp => dateFormat(timestamp)
-        },
+        }
     },
     {
         toJSON: {
