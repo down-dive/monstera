@@ -4,10 +4,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -20,7 +17,6 @@
   },
   "homepage": "https://github.com/down-dive/monstrea#readme",
   "dependencies": {
-    "concurrently": "^6.2.0",
-    "react-router-dom": "^5.2.0"
+    "concurrently": "^6.2.0"
   }
 }
