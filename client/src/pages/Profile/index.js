@@ -1,6 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import UserInfo from '../../components/User-info/index.js'
+// import test from '../../components/test-component'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,7 +31,9 @@ const Profile = () => {
                     <Paper className={classes.paper}>Profile image</Paper>
                 </Grid>
                 <Grid item xs={5}>
-                    <Paper className={classes.paper}>Profile info</Paper>
+                    <Paper className={classes.paper}>
+                        <UserInfo />
+                        </Paper>
                 </Grid>
 
             </Grid>
