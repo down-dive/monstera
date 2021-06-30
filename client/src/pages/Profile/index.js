@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
 const Profile = () => {
     const classes = useStyles();
     return (
