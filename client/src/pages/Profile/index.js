@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import UserInfo from '../../components/User-info/index.js'
 import UserImage from '../../components/User-image'
+import SearchBar from '../../components/Search-bar'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,7 +23,9 @@ const Profile = () => {
         <div>
             <Grid container spacing={4}>
                 <Grid item xs={12}>
-                    <Paper className={classes.paper}>Search bar</Paper>
+                    <Paper className={classes.paper}>
+                        <SearchBar />
+                        </Paper>
                 </Grid>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>Navigation</Paper>
