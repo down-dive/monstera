@@ -3,6 +3,7 @@ import './App.css';
 
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
+import SignInSignUp from './pages/Sign-in-sign-up';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Switch>
           <Route exact path="/profile/:username?" component={Profile} />
           <Route exact path="/friends" component={Friends} />
+          <Route exact path="/signinsignup" component={SignInSignUp} />
         </Switch>
       </div>
     </div>
