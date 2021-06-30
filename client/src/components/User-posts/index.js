@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UserInfo = () => {
+const UserPosts = () => {
   const classes = useStyles();
 
   return (
@@ -37,4 +37,4 @@ const UserInfo = () => {
   );
 }
 
-export default UserInfo;
+export default UserPosts;

@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import UserInfo from '../../components/User-info/index.js'
 import UserImage from '../../components/User-image'
 import SearchBar from '../../components/Search-bar'
+import UserPosts from  '../../components/User-posts'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,6 +43,7 @@ const Profile = () => {
                 </Grid>
 
             </Grid>
+            <UserPosts />
         </div>
     )
 }
