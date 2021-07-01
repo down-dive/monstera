@@ -40,7 +40,7 @@ const postSchema = new Schema(
 );
 
 postSchema.virtual('replyCount').get(function() {
-    return this.reactions.length;
+    return this.replies.length;
 });
 
 const Post = model('Post', postSchema);
