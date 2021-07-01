@@ -4,7 +4,8 @@ import './App.css';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
-
+import Homepage from './pages/Homepage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -12,11 +13,13 @@ function App() {
     <div className="flex-column justify-flex-start min-100-vh">
       <div className="container">
         <Switch>
+          <Route exact path="/home" component={Homepage} />
           <Route exact path="/profile/:username?" component={Profile} />
           <Route exact path="/friends" component={Friends} />
           <Route exact path="/signinsignup" component={SignInSignUp} />
         </Switch>
       </div>
+      <Footer />
     </div>
   </Router>
   );
