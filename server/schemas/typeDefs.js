@@ -4,15 +4,12 @@ const typeDefs = gql`
     type User {
         _id: ID
         username: String
+        email: String
+        zipCode: Int
         posts: [Post]
         friends: [User]
         friendCount: Int
         notifications: [Notification]
-    }
-
-    type Auth {
-        token: ID
-        user: User
     }
 
     type Post {
@@ -38,6 +35,11 @@ const typeDefs = gql`
         createdAt: String
     }
 
+    type Auth {
+        token: ID!
+        user: User
+    }
+
     type Query {
         me: User
         users: [User]
@@ -48,7 +50,8 @@ const typeDefs = gql`
     }
 
     type Mutation {
-
+        login(username: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!, zipCode: Int): Auth
     }
 `;
 
