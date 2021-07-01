@@ -46,6 +46,10 @@ const typeDefs = gql`
         post(_id: ID!): Post
         notification(username: String!): Notification
     }
+
+    type Mutation {
+
+    }
 `;
 
 module.exports = typeDefs;

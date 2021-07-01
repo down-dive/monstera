@@ -9,6 +9,12 @@ const userSchema = new Schema(
             unique: true,
             trim: true
         },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            match: [/.+@.+\..+/, 'Must match an email address!']
+        },
         password: {
             type: String,
             required: true,
@@ -40,11 +46,11 @@ const userSchema = new Schema(
     }
 );
 
-userSchema.methods.isCorrectPassword = async function(password) {
+userSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-userSchema.virtual('friendCount').get(function() {
+userSchema.virtual('friendCount').get(function () {
     return this.friends.length;
 });
 
