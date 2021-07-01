@@ -9,6 +9,12 @@ const typeDefs = gql`
         friendCount: Int
         notifications: [Notification]
     }
+
+    type Auth {
+        token: ID
+        user: User
+    }
+
     type Post {
         _id: ID
         postContent: String
@@ -17,12 +23,14 @@ const typeDefs = gql`
         replyCount: Int 
         replies: [Reply]
     }
+
     type Reply {
         _id: ID
         replyContent: String
         username: String
         createdAt: String
     }
+    
     type Notification {
         _id: ID
         noteContent: String
