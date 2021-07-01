@@ -23,6 +23,17 @@ const resolvers = {
         post: async (parent, { _id }) => {
             return Post.findOne({ _id });
         },
+        notification: async (parent, args, context) => {
+            console.log(context.user);
+            if (context.user) {
+                const userData = await User.findOne({ username: context.user.username.username })
+                .select('-__v');
+
+            return userData;
+            }
+
+            throw new AuthenticationError('Not logged in');
+        },
     },
     Mutation: {
         addUser: async (parent, args) => {
