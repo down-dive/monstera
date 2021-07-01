@@ -16,13 +16,16 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         },
+        // get all posts
         posts: async (parent, { username }) => {
             const params = username ? { username } : {};
             return Post.find(params).sort({ createdAt: -1 });
         },
+        // get a single post by id
         post: async (parent, { _id }) => {
             return Post.findOne({ _id });
         },
+        // get notifications for specific user
         notification: async (parent, args, context) => {
             console.log(context.user);
             if (context.user) {
@@ -37,6 +40,13 @@ const resolvers = {
         // get all users
         users: async () => {
             return User.find()
+                .select('-__v -password')
+                .populate('friends')
+                .populate('posts');
+        },
+        // get a user by username
+        user: async (parent, { username }) => {
+            return User.findOne({ username })
                 .select('-__v -password')
                 .populate('friends')
                 .populate('posts');
