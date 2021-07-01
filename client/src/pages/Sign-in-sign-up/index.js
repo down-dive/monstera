@@ -1,10 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import UserInfo from '../../components/User-info/index.js'
-import UserImage from '../../components/User-image'
-import SearchBar from '../../components/Search-bar'
-import UserPosts from  '../../components/User-posts'
+
+import SignIn from "../../components/Sign-in";
+import SignUp from "../../components/Sign-up";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,34 +16,28 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Profile = () => {
+const SignInSignUp = () => {
     const classes = useStyles();
     return (
         <div>
             <Grid container spacing={4}>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>
-                        <SearchBar />
-                        </Paper>
-                </Grid>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>Navigation</Paper>
                 </Grid>
                 <Grid item xs={4}>
-                    <Paper className={classes.paper}> User image
-                    <UserImage />
+                    <Paper className={classes.paper}> 
+                    <SignIn />
                     </Paper>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={4}>
                     <Paper className={classes.paper}>
-                        <UserInfo />
+                        <SignUp />
                         </Paper>
                 </Grid>
 
             </Grid>
-            <UserPosts />
         </div>
     )
 }
 
-export default Profile;
+export default SignInSignUp;
