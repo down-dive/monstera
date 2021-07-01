@@ -23,25 +23,24 @@ const Homepage = () => {
     <div>
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>Heading</Paper>
+          <Paper className={classes.paper}><SearchBar /></Paper>
         </Grid>
       </Grid>
       <Grid
         container
         direction="row"
-        justify="center"
-        alignItems="center"
+        justify="space-around"
+        alignItems="stretch"
         spacing={4}
       >
-        <Grid item xs={2}>
-          <Paper className={classes.paper}>Navigation</Paper>
+        <Grid item xs={3}>
+         
           
         </Grid>
         <Grid  item xs={6}>
           <Paper className={classes.paper}>
-            <SearchBar />
-          </Paper>
-          <Paper className={classes.paper}>
+            {/* <SearchBar /> */}
+          user post form
               <PostForm />
           </Paper>
           <Paper className={classes.paper}>news feed</Paper>

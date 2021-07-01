@@ -86,7 +86,7 @@ const PostForm = () => {
           multiline
           fullWidth
           rows={4}
-          defaultValue="Default Value"
+          defaultValue="type here..."
           variant="outlined"
         />
         <button className="btn col-12 col-md-3" type="submit">
