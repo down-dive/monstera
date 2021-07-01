@@ -20,6 +20,9 @@ const userSchema = new Schema(
             required: true,
             minlength: 6
         },
+        zipCode: {
+            type: Number
+        },
         posts: [
             {
                 type: Schema.Types.ObjectId,
