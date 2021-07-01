@@ -5,6 +5,7 @@ import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
 import Homepage from './pages/Homepage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/signinsignup" component={SignInSignUp} />
         </Switch>
       </div>
+      <Footer />
     </div>
   </Router>
   );
