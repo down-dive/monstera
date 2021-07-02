@@ -29,6 +29,7 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container">
+            <SearchBar />
             <Switch>
               <Route exact path="/home" component={Homepage} />
               <Route exact path="/profile/:username?" component={Profile} />
