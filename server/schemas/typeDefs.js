@@ -62,7 +62,7 @@ const typeDefs = gql`
         deletePost(postId: ID!): User
         deleteFriend(friendId: ID!): User
         deleteNotification(notificationId: ID!): User
-
+        deleteReply(replyId: ID!): Post
     }
 `;
 
