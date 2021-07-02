@@ -9,6 +9,19 @@ import SignInSignUp from './pages/Sign-in-sign-up';
 import Homepage from './pages/Homepage';
 import Footer from './components/Footer';
 
+const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+  },
+  uri: '/graphql'
+});
+
 function App() {
   return (
     <ApolloProvider client={client}>
