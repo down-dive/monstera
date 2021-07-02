@@ -6,11 +6,13 @@ import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
 import Homepage from './pages/Homepage';
 import Footer from './components/Footer';
+import SearchBar from './components/Search-bar'
 
 function App() {
   return (
     <Router>
     <div className="flex-column justify-flex-start min-100-vh">
+      <SearchBar />
       <div className="container">
         <Switch>
           <Route exact path="/home" component={Homepage} />

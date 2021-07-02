@@ -1,9 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
-import SearchBar from "../../components/Search-bar";
 import PostForm from "../../components/PostForm";
 
 const useStyles = makeStyles(theme => ({
@@ -23,21 +22,36 @@ const Homepage = () => {
     <div>
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}><SearchBar /></Paper>
+        </Grid>
+      </Grid>
+        <Grid item xs={12}>
+        </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+        </Grid>
+      </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+        </Grid>
+      </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+          
         </Grid>
       </Grid>
       <Grid
         container
         direction="row"
-        justify="space-around"
+        justify="flex-start"
         alignItems="stretch"
         spacing={4}
+        
       >
         <Grid item xs={3}>
-         
-          
+        
+
         </Grid>
-        <Grid  item xs={6}>
+        <Grid  item xs={5}>
           <Paper className={classes.paper}>
             {/* <SearchBar /> */}
           user post form
