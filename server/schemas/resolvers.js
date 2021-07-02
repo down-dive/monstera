@@ -131,6 +131,20 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
+        },
+        deleteNotification: async (parent, { notificationId }, context) => {
+            if(context.user) {
+                // console.log('I am context.user', context.user);
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user.username._id },
+                    { $pull: { friends: { _id: notificationId } }},
+                    { new: true }
+                );
+
+                return updatedUser;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
         }
         
     }
