@@ -5,7 +5,9 @@ import UserInfo from '../../components/User-info/index.js'
 import UserImage from '../../components/user-image'
 import SearchBar from '../../components/Search-bar'
 import UserPosts from  '../../components/User-posts'
-// import './style.css'
+
+//import './style.css'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,5 +49,6 @@ const Profile = () => {
         </div>
     )
 }
+
 
 export default Profile;
