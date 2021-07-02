@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Post } = require('../models');
+const { update } = require('../models/User');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -102,7 +103,21 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
-        }
+        },
+        deletePost: async (parent,{ postId }, context) => {
+            if (context.user) {
+                // console.log('I am context.user', context.user);
+                const post = await Post.findByIdAndDelete({_id: postId});
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user.username._id },
+                    { $pull: { posts: {_id: postId} } },
+                    { new: true }
+                );
+                return updatedUser;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
+        },
     }
 };
 
