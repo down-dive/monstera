@@ -55,6 +55,9 @@ const typeDefs = gql`
         addPost(postContent: String!): Post
         addFriend(friendId: ID!): User
         deletePost(postId: ID!): User
+        deleteFriend(friendId: ID!): User
+        deleteNotification(notificationId: ID!): User
+
     }
 `;
 
