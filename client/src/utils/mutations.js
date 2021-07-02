@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const LOGIN_USER = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+  mutation login($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
       token
       user {
         _id
@@ -76,6 +76,23 @@ export const REMOVE_FRIEND = gql`
       friends {
         _id
         username
+      }
+    }
+  }
+`;
+
+export const REMOVE_REPLY = gql`
+  mutation deleteReply($replyId: ID!) {
+    deleteReply(replyId: $replyId) {
+      _id
+      username
+      replyCount
+      createdAt
+      replies {
+        _id
+        replyContent
+        username
+        createdAt
       }
     }
   }
