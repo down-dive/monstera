@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import SearchBar from "../../components/Search-bar";
 import PostForm from "../../components/PostForm";
+import DangerButton from "../../components/DangerButton";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,9 +35,9 @@ const Homepage = () => {
         spacing={4}
       >
         <Grid item xs={3}>
-         
-          
+          <DangerButton></DangerButton>
         </Grid>
+        
         <Grid  item xs={6}>
           <Paper className={classes.paper}>
             {/* <SearchBar /> */}
