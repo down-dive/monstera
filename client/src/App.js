@@ -8,6 +8,7 @@ import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
 import Homepage from './pages/Homepage';
 import Footer from './components/Footer';
+import SearchBar from './components/Search-bar'
 
 const client = new ApolloClient({
   request: operation => {
@@ -28,6 +29,7 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container">
+            <SearchBar />
             <Switch>
               <Route exact path="/home" component={Homepage} />
               <Route exact path="/profile/:username?" component={Profile} />

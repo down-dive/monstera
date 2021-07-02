@@ -6,6 +6,9 @@ import UserImage from '../../components/User-image'
 import SearchBar from '../../components/Search-bar'
 import UserPosts from  '../../components/User-posts'
 
+//import './style.css'
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
