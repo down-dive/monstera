@@ -40,13 +40,13 @@ export const ADD_POST = gql`
 `;
 
 export const ADD_REPLIES = gql`
-  mutation addReaction($postId: ID!, $replyBody: String!) {
-    addReaction(postId: $postId, replyBody: $replyBody) {
+  mutation addReply($postId: ID!, $replyContent: String!) {
+    addReply(postId: $postId, replyContent: $replyContent) {
       _id
       replyCount
       replies {
         _id
-        replyBody
+        replyContent
         createdAt
         username
       }
