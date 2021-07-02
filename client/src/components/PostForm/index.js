@@ -86,7 +86,7 @@ const PostForm = () => {
             characterCount === 1000 || error ? "text-error" : ""
           }`}
         >
-          Character Count: {characterCount}/1000
+          {/* Character Count: {characterCount}/1000 */}
           {error && <span className="ml-2">Something went wrong...</span>}
         </p>
         <button className="btn col-12 col-md-3" type="submit">

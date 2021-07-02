@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import PostForm from "../../components/PostForm";
 import DangerButton from "../../components/DangerButton";
+import PostList from "../../components/PostList";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,7 +59,9 @@ const Homepage = () => {
           user post form
               <PostForm />
           </Paper>
-          <Paper className={classes.paper}>news feed</Paper>
+          <Paper className={classes.paper}>news feed
+          <PostList />
+          </Paper>
         </Grid>
         <Grid item xs={3}>
         <Paper className={classes.paper}>local resources/links</Paper>
