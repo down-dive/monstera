@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 import PostForm from "../../components/PostForm";
+import DangerButton from "../../components/DangerButton";
 
 const useStyles = makeStyles(theme => ({
   root: {
