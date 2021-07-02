@@ -49,7 +49,7 @@ const Homepage = () => {
         
       >
         <Grid item xs={3}>
-        
+        <DangerButton />
 
         </Grid>
         <Grid  item xs={5}>
