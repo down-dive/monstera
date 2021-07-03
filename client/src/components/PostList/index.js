@@ -27,31 +27,29 @@ const PostList = ({ post, title }) => {
       <h3>{title}</h3>
       {post &&
         post.map(post => (
-          <Grid>
-            <Paper className={classes.paper}>
-              <div key={post._id} className="card mb-3">
-                <p className="card-header">
-                  <Link
-                    to={`/profile/${post.username}`}
-                    style={{ fontWeight: 700 }}
-                    className="text-light"
-                  >
-                    {post.username}
-                  </Link>{" "}
-                  post on {post.createdAt}
-                </p>
-                <div className="card-body">
-                  <Link to={`/post/${post._id}`}>
-                    <p>{post.postContent}</p>
-                    <p className="mb-0">
-                      Replies: {post.replyCount} || Click to{" "}
-                      {post.replyCount ? "see" : "start"} the discussion!
-                    </p>
-                  </Link>
-                </div>
+          <Paper className={classes.paper}>
+            <div key={post._id} className="card mb-3">
+              <p className="card-header">
+                <Link
+                  to={`/profile/${post.username}`}
+                  style={{ fontWeight: 700 }}
+                  className="text-light"
+                >
+                  {post.username}
+                </Link>{" "}
+                post on {post.createdAt}
+              </p>
+              <div className="card-body">
+                <Link to={`/post/${post._id}`}>
+                  <p>{post.postContent}</p>
+                  <p className="mb-0">
+                    Replies: {post.replyCount} || Click to{" "}
+                    {post.replyCount ? "see" : "start"} the discussion!
+                  </p>
+                </Link>
               </div>
-            </Paper>
-          </Grid>
+            </div>
+          </Paper>
         ))}
     </div>
   );
