@@ -22,6 +22,11 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import NotificationBell from '../NotificationBell';
 import DangerButton from "../../components/DangerButton";
 
+import { Link } from 'react-router-dom';
+
+import Auth from '../../utils/auth';
+
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -154,7 +159,11 @@ function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-export default function PersistentDrawerLeft(props) {
+export default function PersistentDrawerLeft() {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -206,6 +215,19 @@ export default function PersistentDrawerLeft(props) {
           <div className={classes.sectionDesktop}>
             <NotificationBell client={props.client}/>
           </div>
+          <nav className="text-center">
+          {Auth.loggedIn() ? (
+            <>
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
+            </>
+          ) : (
+            <>
+              <Link to="/signin">Login</Link>
+            </>
+          )}
+        </nav>
         </Toolbar>
       </AppBar>
       <Drawer
