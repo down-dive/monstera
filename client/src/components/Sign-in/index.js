@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/react-hooks';
+import { LOGIN_USER } from '../../utils/mutations';
+
+import Auth from '../../utils/auth';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -33,8 +38,42 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+const Login = props => {
   const classes = useStyles();
+
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  // update state based on form input changes
+  const handleChange = event => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async event => {
+    event.preventDefault();
+
+    try {
+      const { data } = await login({
+        variables: { ...formState }
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: ''
+    });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -46,7 +85,10 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={handleFormSubmit}
+        className={classes.form} 
+        noValidate
+        >
           <TextField
             variant="outlined"
             margin="normal"
@@ -57,6 +99,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={formState.email}
+            onChange={handleChange}
           />
           <TextField
             variant="outlined"
@@ -68,6 +112,8 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={formState.password}
+            onChange={handleChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -83,11 +129,6 @@ export default function SignIn() {
             Sign In
           </Button>
           <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
             <Grid item>
               <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
@@ -95,9 +136,13 @@ export default function SignIn() {
             </Grid>
           </Grid>
         </form>
+
+        {error && <div>Login failed</div>}
       </div>
       <Box mt={8}>
       </Box>
     </Container>
   );
 }
+
+export default Login;

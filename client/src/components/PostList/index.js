@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Paper from "@material-ui/core/Paper";
+
 
 const PostList = ({ post, title }) => {
   // if (!post.length) {
