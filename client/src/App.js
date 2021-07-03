@@ -13,16 +13,16 @@ import Footer from './components/Footer';
 import SearchBar from './components/Search-bar'
 
 const client = new ApolloClient({
-  // request: operation => {
-  //   const token = localStorage.getItem('id_token');
+  request: operation => {
+    const token = localStorage.getItem('id_token');
 
-  //   operation.setContext({
-  //     headers: {
-  //       authorization: token ? `Bearer ${token}` : ''
-  //     }
-  //   });
-  // },
-  uri: 'http://localhost:3001/graphql'
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+  },
+  uri: '/graphql'
 });
 
 function App() {
