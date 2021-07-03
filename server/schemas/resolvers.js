@@ -20,7 +20,7 @@ const resolvers = {
         },
         // get all posts
         posts: async (parent, { username }, context) => {
-            console.log('I am context', context.user);
+            // console.log('I am context', context.user);
             const params = username ? { username } : {};
             return Post.find(params).sort({ createdAt: -1 });
         },
