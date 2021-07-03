@@ -11,7 +11,7 @@ import TextField from "@material-ui/core/TextField";
 
 
 const PostForm = () => {
-  const [postContent, setContent] = useState("");
+  const [postContent, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addPost, { error }] = useMutation(ADD_POST, {
@@ -40,7 +40,7 @@ const PostForm = () => {
   // update state based on form input changes
   const handleChange = event => {
     if (event.target.value.length <= 1000) {
-      setContent(event.target.value);
+      setText(event.target.value);
       setCharacterCount(event.target.value.length);
     }
   };
@@ -55,7 +55,7 @@ const PostForm = () => {
       });
 
       // clear form value
-      setContent("");
+      setText("");
       setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -77,6 +77,7 @@ const PostForm = () => {
           multiline
           fullWidth
           rows={4}
+          defaultValue=""
           variant="outlined"
           onChange={handleChange}
         />
