@@ -22,6 +22,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import NotificationBell from '../NotificationBell';
 
 const drawerWidth = 240;
 
@@ -151,7 +152,7 @@ function HomeIcon(props) {
   );
 }
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -201,11 +202,7 @@ export default function PersistentDrawerLeft() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 1 new notifications" color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <NotificationBell client={props.client}/>
           </div>
         </Toolbar>
       </AppBar>

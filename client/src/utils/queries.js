@@ -53,6 +53,12 @@ export const QUERY_USER = gql`
         createdAt
         replyCount
       }
+      notifications {
+        _id
+        noteContent
+        username
+        createdAt
+      }
     }
   }
 `;
