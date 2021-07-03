@@ -12,7 +12,7 @@ export const QUERY_POSTS = gql`
         _id
         createdAt
         username
-        replyBody
+        replyContent
       }
     }
   }

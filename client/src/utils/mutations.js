@@ -97,3 +97,16 @@ export const REMOVE_REPLY = gql`
     }
   }
 `;
+
+export const REMOVE_POST = gql`
+  mutation deletePost($postId: ID!) {
+  deletePost(postId: $postId) {
+    _id
+    username
+    posts {
+      _id
+      postContent
+    }
+  }
+}
+`;
