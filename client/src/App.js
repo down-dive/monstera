@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
 import Homepage from './pages/Homepage';
+import SinglePost from './pages/single-post/SinglePost';
 import Footer from './components/Footer';
 import SearchBar from './components/Search-bar'
 
@@ -35,6 +36,7 @@ function App() {
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/friends" component={Friends} />
               <Route exact path="/signin" component={SignInSignUp} />
+              <Route exact path="/post/:id" component={SinglePost} />
             </Switch>
           </div>
           <Footer />
