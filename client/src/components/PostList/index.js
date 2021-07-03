@@ -1,26 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-}));
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PostList = ({ post, title }) => {
   // if (!post.length) {
   //   return <h3>No Posts Yet</h3>;
   // }
-
-  const classes = useStyles();
 
   return (
     <div>
