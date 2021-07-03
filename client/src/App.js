@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import './App.css';
-
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
@@ -32,7 +31,7 @@ function App() {
           <div className="container">
             <SearchBar />
             <Switch>
-              <Route exact path="/home" component={Homepage} />
+              <Route exact path="/" component={Homepage} />
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/friends" component={Friends} />
               <Route exact path="/signin" component={SignInSignUp} />

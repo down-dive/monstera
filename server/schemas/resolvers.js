@@ -52,7 +52,8 @@ const resolvers = {
             return User.findOne({ username })
                 .select('-__v -password')
                 .populate('friends')
-                .populate('posts');
+                .populate('posts')
+                .populate('notifications');
         },
     },
     Mutation: {
@@ -87,6 +88,30 @@ const resolvers = {
                     { $push: { posts: post._id } },
                     { new: true }
                 );
+                
+                if (args.sos) {
+                    // create a notification
+                    const notificationObj = {
+                        noteContent: "I am in danger!",
+                        createdBy:  context.user._id,
+                        lat: args.lat ? args.lat : null,
+                        long: args.long ? args.long : null,
+                    }
+
+                    const notification = await Notification.create(notificationObj);
+                    const user = await User.findById(context.user._id);
+                    const friends = user.friends;
+                    // loop over list of friends, and update with notification id
+                    for (var i = 0; i < friends.length; i++) {
+                        var friend = friends[i];
+                        console.log(notification);
+                        const user = await User.findByIdAndUpdate(
+                            { _id: friend},
+                            { $push: { notifications: notification._id} },
+                            { new: true }
+                        );
+                    }
+                }
                 return post;
             }
 
