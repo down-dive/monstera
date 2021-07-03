@@ -12,15 +12,15 @@ export const QUERY_POSTS = gql`
         _id
         createdAt
         username
-        replyBody
+        replyContent
       }
     }
   }
 `;
 
 export const QUERY_POST = gql`
-  query post($id: ID!) {
-    post(_id: $id) {
+  query post($_id: ID!) {
+    post(_id: $_id) {
       _id
       postContent
       createdAt
@@ -30,7 +30,7 @@ export const QUERY_POST = gql`
         _id
         createdAt
         username
-        replyBody
+        replyContent
       }
     }
   }
@@ -72,7 +72,7 @@ export const QUERY_ME = gql`
         replies {
           _id
           createdAt
-          replyBody
+          replyContent
           username
         }
       }
