@@ -83,15 +83,15 @@ export default function SignUp() {
         noValidate
         >
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
-                autoComplete="uname"
-                name="userName"
+                autoComplete="username"
+                name="username"
                 variant="outlined"
                 required
                 fullWidth
-                id="userName"
-                label="User Name"
+                id="username"
+                label="Username"
                 autoFocus
                 value={formState.username}
                 onChange={handleChange}
