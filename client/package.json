@@ -12,11 +12,8 @@
     "@testing-library/user-event": "^12.8.3",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.5.1",
-<<<<<<< HEAD
     "jwt-decode": "^3.1.2",
-=======
     "graphql-tag": "^2.12.5",
->>>>>>> 00e79d74617204db5184ac144a031a86567c0038
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
