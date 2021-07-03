@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import './App.css';
-
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
