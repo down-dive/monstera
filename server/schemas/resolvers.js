@@ -6,7 +6,6 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
-            console.log('I am context', context.user)
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
@@ -20,7 +19,6 @@ const resolvers = {
         },
         // get all posts
         posts: async (parent, { username }, context) => {
-            console.log('I am context', context.user);
             const params = username ? { username } : {};
             return Post.find(params).sort({ createdAt: -1 });
         },
@@ -81,7 +79,6 @@ const resolvers = {
         },
         addPost: async (parent, args, context) => {
             if (context.user) {
-                // console.log('I am context.user', context.user);
                 const post = await Post.create({ ...args, username: context.user.username });
                 const user = await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -119,7 +116,6 @@ const resolvers = {
         },
         addFriend: async (parent, { friendId }, context) => {
             if (context.user) {
-                // console.log('I am context.user', context.user);
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $addToSet: { friends: friendId } },
@@ -133,7 +129,6 @@ const resolvers = {
         },
         addNotification: async (_parent,_args, context) => {
             if (context.user) {
-                // console.log('I am context.user', context.user);
                 var friends = context.user.friends;
                 var notifications = [];
                 var success = false;
@@ -163,7 +158,6 @@ const resolvers = {
         },
         addReply: async (parent, { postId, replyContent}, context) => {
             if(context.user) {
-                // console.log('I am context.user', context.user);
                 const updatedPost = await Post.findOneAndUpdate(
                     { _id: postId },
                     { $push: { replies: { replyContent, username: context.user.username } } },
@@ -177,7 +171,6 @@ const resolvers = {
         },
         deletePost: async (parent, { postId }, context) => {
             if (context.user) {
-                // console.log('I am context.user', context.user);
                 const post = await Post.findByIdAndDelete({ _id: postId });
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -191,7 +184,6 @@ const resolvers = {
         },
         deleteFriend: async (parent, { friendId }, context) => {
             if (context.user) {
-                // console.log('I am context.user', context.user);
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $pull: { friends: friendId } },
@@ -219,7 +211,6 @@ const resolvers = {
         },
         deleteReply: async (parent, { replyId }, context) => {
             if(context.user) {
-                // console.log('I am context.user', context.user);
                 const updatedPost = await Post.findOneAndUpdate(
                     { username: context.user.username },
                     { $pull: { replies: {_id: replyId} }},
