@@ -22,6 +22,9 @@ const typeDefs = gql`
         username: String
         replyCount: Int 
         replies: [Reply]
+        sos: Boolean
+        lat: String
+        long: String
     }
 
     type Reply {
@@ -55,7 +58,7 @@ const typeDefs = gql`
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, zipCode: Int): Auth
-        addPost(postContent: String!): Post
+        addPost(postContent: String!, sos: Boolean, lat: String, long: String): Post
         addFriend(friendId: ID!): User
         addNotification: NotificationConfirm
         addReply(postId: ID!, replyContent: String!): Post
