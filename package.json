@@ -5,6 +5,7 @@
   "main": "server/server.js",
   "dependencies": {
     "concurrently": "^6.2.0",
+    "faker": "^5.5.3",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {},

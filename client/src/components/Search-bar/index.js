@@ -20,6 +20,11 @@ import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import DangerButton from "../../components/DangerButton";
 
+import { Link } from 'react-router-dom';
+
+import Auth from '../../utils/auth';
+
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -153,6 +158,10 @@ function ListItemLink(props) {
 }
 
 export default function PersistentDrawerLeft() {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -208,6 +217,19 @@ export default function PersistentDrawerLeft() {
               </Badge>
             </IconButton>
           </div>
+          <nav className="text-center">
+          {Auth.loggedIn() ? (
+            <>
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
+            </>
+          ) : (
+            <>
+              <Link to="/signin">Login</Link>
+            </>
+          )}
+        </nav>
         </Toolbar>
       </AppBar>
       <Drawer
