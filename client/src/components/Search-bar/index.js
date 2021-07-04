@@ -13,15 +13,17 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import SearchIcon from "@material-ui/icons/Search";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import DangerButton from "../../components/DangerButton";
+
+import { Link } from 'react-router-dom';
+
+import Auth from '../../utils/auth';
+
 
 const drawerWidth = 240;
 
@@ -143,15 +145,23 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function HomeIcon(props) {
-  return (
-    <SvgIcon {...props}>
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-    </SvgIcon>
-  );
+// function HomeIcon(props) {
+//   return (
+//     <SvgIcon {...props}>
+//       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+//     </SvgIcon>
+//   );
+// }
+
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
 }
 
 export default function PersistentDrawerLeft() {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -207,6 +217,19 @@ export default function PersistentDrawerLeft() {
               </Badge>
             </IconButton>
           </div>
+          <nav className="text-center">
+          {Auth.loggedIn() ? (
+            <>
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
+            </>
+          ) : (
+            <>
+              <Link to="/signin">Login</Link>
+            </>
+          )}
+        </nav>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -229,32 +252,23 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {["MONSTREA!!", "Home", "profile", "Friend List"].map(
-            (text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? (
-                    <InboxIcon />
-                  ) : (
-                    <HomeIcon color="primary" />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          )}
+          <ListItem button>
+          <DangerButton />
+          </ListItem>
+          <ListItemLink href="/">
+            <ListItemText primary="Home" />
+          </ListItemLink>
+          <ListItemLink href="/profile">
+            <ListItemText primary="Profile" />
+          </ListItemLink>
+          <ListItemLink href="/friends">
+            <ListItemText primary="Friends" />
+          </ListItemLink>
+          <ListItemLink href="/friends">
+            <ListItemText primary="Resources" />
+          </ListItemLink>
         </List>
         <Divider />
-        <List>
-          {["test", "testing", "tested"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
     </div>
   );
