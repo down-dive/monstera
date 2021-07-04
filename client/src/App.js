@@ -9,8 +9,13 @@ import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
 import Homepage from './pages/Homepage';
 import SinglePost from './pages/single-post/SinglePost';
+import Welcome from './pages/Welcome/index.js';
+
 import Footer from './components/Footer';
 import SearchBar from './components/Search-bar'
+
+
+import Auth from './utils/auth';
 
 const client = new ApolloClient({
   request: operation => {
@@ -33,11 +38,19 @@ function App() {
           <div className="container">
             <SearchBar />
             <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route exact path="/profile/:username?" component={Profile} />
-              <Route exact path="/friends" component={Friends} />
-              <Route exact path="/signin" component={SignInSignUp} />
-              <Route exact path="/post/:id" component={SinglePost} />
+              {Auth.loggedIn() ? (
+                <>
+                  <Route exact path="/" component={Homepage} />
+                  <Route exact path="/profile/:username?" component={Profile} />
+                  <Route exact path="/friends" component={Friends} />
+                  <Route exact path="/post/:id" component={SinglePost} />
+                </>
+              ) : (
+                <>
+                  <Route exact path="/" component={Welcome} />
+                  <Route exact path="/signin" component={SignInSignUp} />
+                </>
+              )}
             </Switch>
           </div>
           <Footer />
