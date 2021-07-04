@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PostList = ({ post, title }) => {
-  // if (!post.length) {
-  //   return <h3>No Posts Yet</h3>;
-  // }
+const PostList = ({ posts }) => {
+  if (!posts) {
+    return <h3>No Posts Yet</h3>;
+  }
 
   return (
     <div>
-      <h3>{title}</h3>
-      {post &&
-        post.map(post => (
+      {/* <h3>{title}</h3> */}
+      {posts &&
+        posts.map(post => (
           <div key={post._id} className="card mb-3">
             <p className="card-header">
               <Link
