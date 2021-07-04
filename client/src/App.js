@@ -9,7 +9,7 @@ import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
 import Homepage from './pages/Homepage';
 import SinglePost from './pages/single-post/SinglePost';
-import Welcome from './pages/Welcome';
+import Welcome from './pages/Welcome/index.js';
 
 import Footer from './components/Footer';
 import SearchBar from './components/Search-bar'
@@ -44,10 +44,10 @@ function App() {
                   <Route exact path="/profile/:username?" component={Profile} />
                   <Route exact path="/friends" component={Friends} />
                   <Route exact path="/post/:id" component={SinglePost} />
-                  <Route exact path="/welcome" component={Welcome} />
                 </>
               ) : (
                 <>
+                  <Route exact path="/" component={Welcome} />
                   <Route exact path="/signin" component={SignInSignUp} />
                 </>
               )}
