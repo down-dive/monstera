@@ -13,7 +13,11 @@ const NotificationBell = (props) => {
     });
 
     return (
-        <IconButton aria-label="show 1 new notifications" color="inherit">
+        <IconButton aria-label="show new notifications" color="inherit" onClick={() => {
+            props.setShowNotifications(true);
+            const notifications = data.me ? data.me.notifications : [];
+            props.setNotifications(notifications);
+        }}>
             {data ? <Badge badgeContent={data.me.notifications.length } color="secondary">
             <NotificationsIcon />
             </Badge> : <NotificationsIcon />

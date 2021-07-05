@@ -10,8 +10,8 @@ const resolvers = {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
                     .populate('posts')
-                    .populate('friends');
-
+                    .populate('friends')
+                    .populate('notifications');
                 return userData;
             }
 
@@ -90,9 +90,10 @@ const resolvers = {
                     // create a notification
                     const notificationObj = {
                         noteContent: "I am in danger!",
-                        createdBy:  context.user._id,
+                        createdBy:  context.user.username,
                         lat: args.lat ? args.lat : null,
                         long: args.long ? args.long : null,
+                        postId: post._id,
                     }
 
                     const notification = await Notification.create(notificationObj);

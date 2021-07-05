@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
@@ -30,16 +31,19 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [showNotifications, setShowNotifications] = React.useState(false);
+  const [notifications, setNotifications] = React.useState([]);
+
   return (
+    <ApolloProvider client={client}>
       <Router>
-        <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container">
-            <SearchBar />
+            <SearchBar setShowNotifications={setShowNotifications} setNotifications={setNotifications}/>
             <Switch>
               {Auth.loggedIn() ? (
                 <>
-                  <Route exact path="/" component={Homepage} />
+                  <Route exact path="/" children={() => <Homepage showNotifications={showNotifications} notifications={notifications}/>} />
                   <Route exact path="/profile/:username?" component={Profile} />
                   <Route exact path="/friends" component={Friends} />
                   <Route exact path="/post/:id" component={SinglePost} />
@@ -54,9 +58,8 @@ function App() {
           </div>
           <Footer />
         </div>
-        </ApolloProvider>
       </Router>
-    
+    </ApolloProvider>
   );
 }
 

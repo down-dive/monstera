@@ -37,8 +37,9 @@ const typeDefs = gql`
     type Notification {
         _id: ID
         noteContent: String
-        username: String
+        createdBy: String
         createdAt: String
+        postId: ID
     }
 
     type Auth {
