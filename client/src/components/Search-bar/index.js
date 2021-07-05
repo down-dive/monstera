@@ -213,7 +213,7 @@ export default function PersistentDrawerLeft(props) {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <NotificationBell client={props.client}/>
+            <NotificationBell />
           </div>
           <nav className="text-center">
           {Auth.loggedIn() ? (

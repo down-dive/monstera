@@ -32,11 +32,11 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
       <Router>
+        <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container">
-            <SearchBar client={client}/>
+            <SearchBar />
             <Switch>
               {Auth.loggedIn() ? (
                 <>
@@ -55,8 +55,9 @@ function App() {
           </div>
           <Footer />
         </div>
+        </ApolloProvider>
       </Router>
-    </ApolloProvider>
+    
   );
 }
 
