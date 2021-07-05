@@ -90,16 +90,14 @@ const Login = props => {
         noValidate
         >
           <TextField
+            name="username"
             variant="outlined"
-            margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="username"
+            label="Username"
             autoFocus
-            value={formState.email}
+            value={formState.username}
             onChange={handleChange}
           />
           <TextField
