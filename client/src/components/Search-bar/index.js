@@ -145,6 +145,9 @@ const useStyles = makeStyles(theme => ({
       display: "none",
     },
   },
+  customizeToolbar: {
+    minHeight: 10,
+}
 }));
 
 // function HomeIcon(props) {
@@ -185,7 +188,7 @@ export default function PersistentDrawerLeft(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar className={classes.customizeToolbar}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
