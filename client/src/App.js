@@ -8,7 +8,7 @@ import './App.css';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
-import Homepage from './pages/Homepage';
+import Homepage from './pages/homepage';
 import SinglePost from './pages/single-post/SinglePost';
 import Welcome from './pages/Welcome/index.js';
 
@@ -43,8 +43,7 @@ function App() {
             <Switch>
               {Auth.loggedIn() ? (
                 <>
-                  {/* <Route exact path="/" children={() => <Homepage showNotifications={showNotifications} notifications={notifications}/>} component={Homepage} /> */}
-                  <Route exact path="/" component={Homepage}/>
+                  <Route exact path="/" render={(props) => <Homepage showNotifications={showNotifications} notifications={notifications}/>}/>
                   <Route exact path="/profile/:username?" component={Profile} />
                   <Route exact path="/friends" component={Friends} />
                   <Route exact path="/post/:id" component={SinglePost} />
