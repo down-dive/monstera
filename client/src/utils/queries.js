@@ -86,6 +86,12 @@ export const QUERY_ME = gql`
         _id
         username
       }
+      notifications {
+        _id
+        noteContent
+        username
+        createdAt
+      }
     }
   }
 `;
