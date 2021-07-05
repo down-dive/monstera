@@ -17,6 +17,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -35,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
   },
   root: {
     width: '100%',
@@ -133,16 +140,13 @@ const Login = props => {
           >
             Sign In
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
 
         {error && <div>Login failed</div>}
+        conlose.log(password or email is not correct)
+        <div className={classes.root}>
+      <Alert severity="error">This is an error alert — check it out!</Alert>
+      </div>
       </div>
       <Box mt={8}>
       </Box>
