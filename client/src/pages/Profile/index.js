@@ -15,7 +15,7 @@ import { ADD_FRIEND } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-//import './style.css'
+import './style.css'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -62,6 +62,11 @@ const Profile = () => {
                 </Grid>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>Navigation</Paper>
+                    {userParam && (
+                        <button className="btn ml-auto" onClick={handleClick}>
+                            Add Friend
+                        </button>
+                    )}
                 </Grid>
                 <Grid item xs={4}>
                     <Paper className={classes.paper}> User image
@@ -72,13 +77,6 @@ const Profile = () => {
                     <Paper className={classes.paper}>
                         <UserInfo />
                     </Paper>
-                </Grid>
-                <Grid item xs={12}>
-                {userParam && (
-                    <button className={classes.paper} onClick={handleClick}>
-                        Add Friend
-                    </button>
-                )}
                 </Grid>
             </Grid>
             <UserPosts />
