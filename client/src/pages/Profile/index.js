@@ -13,8 +13,6 @@ import UserPosts from '../../components/User-posts';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import { ADD_FRIEND } from '../../utils/mutations';
 
-import Auth from '../../utils/auth';
-
 import './style.css'
 
 
@@ -63,9 +61,9 @@ const Profile = () => {
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>Navigation</Paper>
                     {userParam && (
-                        <button className="btn ml-auto" onClick={handleClick}>
+                        <Paper className={classes.paper} onClick={handleClick}>
                             Add Friend
-                        </button>
+                        </Paper>
                     )}
                 </Grid>
                 <Grid item xs={4}>
