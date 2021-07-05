@@ -56,8 +56,9 @@ export const QUERY_USER = gql`
       notifications {
         _id
         noteContent
-        username
+        createdBy
         createdAt
+        postId
       }
     }
   }
@@ -89,8 +90,9 @@ export const QUERY_ME = gql`
       notifications {
         _id
         noteContent
-        username
+        createdBy
         createdAt
+        postId
       }
     }
   }

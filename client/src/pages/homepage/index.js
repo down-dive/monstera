@@ -6,11 +6,12 @@ import Grid from "@material-ui/core/Grid";
 import PostForm from "../../components/PostForm";
 import DangerButton from "../../components/DangerButton";
 import PostList from "../../components/PostList";
+import NotificationList from "../../components/NotificationList";
 // import Post from "../../components/Single-post";
 
 import Auth from "../../utils/auth";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_POSTS } from "../../utils/queries";
+import { QUERY_ME, QUERY_POSTS } from "../../utils/queries";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,13 +24,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Homepage = () => {
+const Homepage = (props) => {
   const { loading, data } = useQuery(QUERY_POSTS);
   // const { data: userData } = useQuery(QUERY_ME_BASIC);
   const posts = data?.posts || [];
 
   const loggedIn = Auth.loggedIn();
   const classes = useStyles();
+
   return (
     <main>
       <Grid container spacing={4}>
@@ -64,6 +66,12 @@ const Homepage = () => {
             <Paper className={classes.paper}>
               <PostForm />
             </Paper>
+            { props.showNotifications && (
+              <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
+                <NotificationList notifications={props.notifications} />
+              </Paper>
+            )
+            }
             <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
               {loading ? (
                 <div>Loading...</div>
