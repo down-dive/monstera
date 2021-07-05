@@ -1,0 +1,42 @@
+:root {
+    --primary: #1e43e9;
+    --dark: #e3eeee;
+    --border-radius: 0.3rem;
+  }
+
+  .btn {
+  font-size: 0.8rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 5px 2px;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--dark);
+  outline: none;
+  background-color: var(--primary);
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  color: var(--primary);
+  background-color: var(--dark);
+}
+
+.btn-inline {
+  display: inline;
+}
+
+.ml-auto {
+    margin-left: auto;
+  }
+
+  footer {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    color: white;
+  }

@@ -13,7 +13,8 @@ import SinglePost from './pages/single-post/SinglePost';
 import Welcome from './pages/Welcome/index.js';
 
 import Footer from './components/Footer';
-import SearchBar from './components/Search-bar'
+import SearchBar from './components/Search-bar';
+import Resources from './components/Resources';
 
 import Auth from './utils/auth';
 
@@ -47,6 +48,7 @@ function App() {
                   <Route exact path="/profile/:username?" component={Profile} />
                   <Route exact path="/friends" component={Friends} />
                   <Route exact path="/post/:id" component={SinglePost} />
+                  <Route exact path="/resources" component={Resources} />
                 </>
               ) : (
                 <>

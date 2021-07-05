@@ -15,10 +15,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SearchIcon from "@material-ui/icons/Search";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import InputBase from "@material-ui/core/InputBase";
-import Badge from "@material-ui/core/Badge";
-import SvgIcon from "@material-ui/core/SvgIcon";
 import NotificationBell from '../NotificationBell';
 import DangerButton from "../../components/DangerButton";
 
@@ -145,6 +142,9 @@ const useStyles = makeStyles(theme => ({
       display: "none",
     },
   },
+  customizeToolbar: {
+    minHeight: 10,
+}
 }));
 
 // function HomeIcon(props) {
@@ -185,7 +185,7 @@ export default function PersistentDrawerLeft(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar className={classes.customizeToolbar}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
