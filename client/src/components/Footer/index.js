@@ -118,9 +118,9 @@ export default function BottomAppBar() {
       </Paper>
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar>
-          <div>
+          <footer>
             Made by Monstera Team ♡
-          </div>
+          </footer>
           <div className={classes.grow} />
         </Toolbar>
       </AppBar>

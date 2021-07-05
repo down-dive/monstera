@@ -29,3 +29,14 @@
 .ml-auto {
     margin-left: auto;
   }
+
+  footer {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    color: white;
+  }
