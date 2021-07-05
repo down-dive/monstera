@@ -36,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
 }));
 
 const Login = props => {
@@ -65,6 +71,7 @@ const Login = props => {
 
       Auth.login(data.login.token);
     } catch (e) {
+      console.log("Password is not correct")
       console.error(e);
     }
 
@@ -86,8 +93,8 @@ const Login = props => {
           Sign in
         </Typography>
         <form onSubmit={handleFormSubmit}
-        className={classes.form} 
-        noValidate
+          className={classes.form}
+          noValidate
         >
           <TextField
             name="username"
