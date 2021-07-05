@@ -1,4 +1,4 @@
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,7 +33,7 @@ const Profile = () => {
     const { username: userParam } = useParams();
 
     const [addFriend] = useMutation(ADD_FRIEND);
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
         variables: { username: userParam }
     });
 
