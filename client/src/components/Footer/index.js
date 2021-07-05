@@ -78,17 +78,9 @@ const useStyles = makeStyles((theme) => ({
     top: 'auto',
     bottom: 0,
   },
-  grow: {
-    flexGrow: 1,
-  },
-  fabButton: {
-    position: 'absolute',
-    zIndex: 1,
-    top: 20,
-    left: 20,
-    right: 20,
-    margin: '0 auto',
-  },
+  customizeToolbar: {
+    minHeight: 10,
+}
 }));
 
 export default function BottomAppBar() {
@@ -117,11 +109,10 @@ export default function BottomAppBar() {
         </List>
       </Paper>
       <AppBar position="fixed" color="primary" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className={classes.customizeToolbar}>
           <footer>
             Made by Monstera Team ♡
           </footer>
-          <div className={classes.grow} />
         </Toolbar>
       </AppBar>
     </React.Fragment>
