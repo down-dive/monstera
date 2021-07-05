@@ -143,10 +143,10 @@ const Login = props => {
         </form>
 
         {error && <div>Login failed</div>}
-        conlose.log(password or email is not correct)
+        {/* conlose.log(password or email is not correct)
         <div className={classes.root}>
       <Alert severity="error">This is an error alert — check it out!</Alert>
-      </div>
+      </div> */}
       </div>
       <Box mt={8}>
       </Box>
