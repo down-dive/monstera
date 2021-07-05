@@ -7,7 +7,7 @@ import './App.css';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
-import Homepage from './pages/Homepage';
+import Homepage from './pages/homepage';
 import SinglePost from './pages/single-post/SinglePost';
 import Welcome from './pages/Welcome/index.js';
 
@@ -32,8 +32,8 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
       <Router>
+        <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container">
             <SearchBar />
@@ -55,8 +55,9 @@ function App() {
           </div>
           <Footer />
         </div>
+        </ApolloProvider>
       </Router>
-    </ApolloProvider>
+    
   );
 }
 

@@ -18,6 +18,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import NotificationBell from '../NotificationBell';
 import DangerButton from "../../components/DangerButton";
 
 import { Link } from 'react-router-dom';
@@ -157,7 +159,7 @@ function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft(props) {
   const logout = event => {
     event.preventDefault();
     Auth.logout();
@@ -211,11 +213,7 @@ export default function PersistentDrawerLeft() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 1 new notifications" color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <NotificationBell />
           </div>
           <nav className="text-center">
           {Auth.loggedIn() ? (
