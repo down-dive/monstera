@@ -143,7 +143,7 @@ const Login = props => {
           </Button>
         </form>
 
-        {error && <div><Alert severity="error">Username or password in not correct</Alert></div>}
+        {error && <div><Alert severity="error">Username or password is not correct</Alert></div>}
       </div>
       <Box mt={8}>
       </Box>
