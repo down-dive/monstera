@@ -43,7 +43,7 @@ function App() {
             <Switch>
               {Auth.loggedIn() ? (
                 <>
-                  <Route exact path="/" children={() => <Homepage showNotifications={showNotifications} notifications={notifications}/>} />
+                  {/* <Route exact path="/" children={() => <Homepage showNotifications={showNotifications} notifications={notifications}/>} /> */}
                   <Route exact path="/profile/:username?" component={Profile} />
                   <Route exact path="/friends" component={Friends} />
                   <Route exact path="/post/:id" component={SinglePost} />
