@@ -53,6 +53,13 @@ export const QUERY_USER = gql`
         createdAt
         replyCount
       }
+      notifications {
+        _id
+        noteContent
+        createdBy
+        createdAt
+        postId
+      }
     }
   }
 `;
@@ -79,6 +86,13 @@ export const QUERY_ME = gql`
       friends {
         _id
         username
+      }
+      notifications {
+        _id
+        noteContent
+        createdBy
+        createdAt
+        postId
       }
     }
   }

@@ -8,8 +8,8 @@ const notificationSchema = new Schema(
             required: true
         },
         createdBy: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
+            type: String,
+            required: true,
         },
         createdAt: {
             type: Date,
@@ -23,6 +23,10 @@ const notificationSchema = new Schema(
         long: {
             type: String,
             required: false
+        },
+        postId: {
+            type: Schema.Types.ObjectId,
+            ref: 'Post',
         }
     },
     {
