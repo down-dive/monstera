@@ -1,86 +1,85 @@
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { Redirect, useParams } from 'react-router-dom';
+
+import PostForm from '../../components/PostForm';
+import PostList from '../../components/PostList';
+import FriendList from '../../components/Friends-list';
+
 import { useQuery, useMutation } from '@apollo/react-hooks';
-
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-
-import UserInfo from '../../components/User-info/index.js';
-import UserImage from '../../components/User-image';
-import SearchBar from '../../components/Search-bar';
-import UserPosts from '../../components/User-posts';
-
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import { ADD_FRIEND } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
-import './style.css'
+const Profile = props => {
+  const { username: userParam } = useParams();
 
+  const [addFriend] = useMutation(ADD_FRIEND);
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam }
+  });
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-}));
+  const user = data?.me || data?.user || {};
 
-const Profile = () => {
-    const classes = useStyles();
+  // redirect to personal profile page if username is yours
+  if (
+    Auth.loggedIn() &&
+    Auth.getProfile().data.username === userParam
+  ) {
+    return <Redirect to="/profile" />;
+  }
 
-    const { username: userParam } = useParams();
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-    const [addFriend] = useMutation(ADD_FRIEND);
-    const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-        variables: { username: userParam }
-    });
-
-    const user = data?.me || data?.user || {};
-
-    const handleClick = async () => {
-        try {
-            await addFriend({
-                variables: { id: user._id }
-            });
-        } catch (e) {
-            console.error(e);
-        }
-    };
-
-
+  if (!user?.username) {
     return (
-        <div>
-            <Grid container spacing={4}>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>
-                        <SearchBar />
-                    </Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>Navigation</Paper>
-                    {userParam && (
-                        <Paper className={classes.paper} onClick={handleClick}>
-                            Add Friend
-                        </Paper>
-                    )}
-                </Grid>
-                <Grid item xs={4}>
-                    <Paper className={classes.paper}> User image
-                        <UserImage />
-                    </Paper>
-                </Grid>
-                <Grid item xs={5}>
-                    <Paper className={classes.paper}>
-                        <UserInfo />
-                    </Paper>
-                </Grid>
-            </Grid>
-            <UserPosts />
-        </div>
-    )
-}
+      <h4>
+        You need to be logged in to see this. Use the navigation links above to sign up or log in!
+      </h4>
+    );
+  }
 
+  const handleClick = async () => {
+    try {
+      await addFriend({
+        variables: { id: user._id }
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <div>
+      <div className="flex-row mb-3">
+        <h2 className="bg-dark text-secondary p-3 display-inline-block">
+          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+        </h2>
+
+        {userParam && (
+          <button className="btn ml-auto" onClick={handleClick}>
+            Add Friend
+          </button>
+        )}
+      </div>
+
+      <div className="flex-row justify-space-between mb-3">
+        <div className="col-12 mb-3 col-lg-8">
+          <PostList posts={user.posts} title={`${user.username}'s posts...`} />
+        </div>
+
+        <div className="col-12 col-lg-3 mb-3">
+          <FriendList
+            username={user.username}
+            friendCount={user.friendCount}
+            friends={user.friends}
+          />
+        </div>
+      </div>
+      <div className="mb-3">{!userParam && <PostForm />}</div>
+    </div>
+  );
+};
 
 export default Profile;
