@@ -44,8 +44,7 @@ function App() {
             <Switch>
               {Auth.loggedIn() ? (
                 <>
-                  {/* <Route exact path="/" children={() => <Homepage showNotifications={showNotifications} notifications={notifications}/>} component={Homepage} /> */}
-                  <Route exact path="/" component={Homepage}/>
+                  <Route exact path="/" render={(props) => <Homepage showNotifications={showNotifications} notifications={notifications}/>}/>
                   <Route exact path="/profile/:username?" component={Profile} />
                   <Route exact path="/friends" component={Friends} />
                   <Route exact path="/post/:id" component={SinglePost} />
@@ -65,5 +64,6 @@ function App() {
     </ApolloProvider>
   );
 }
+
 
 export default App;
