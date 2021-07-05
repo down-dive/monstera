@@ -159,7 +159,7 @@ function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft(props) {
   const logout = event => {
     event.preventDefault();
     Auth.logout();
