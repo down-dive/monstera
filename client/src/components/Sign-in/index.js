@@ -80,6 +80,7 @@ const Login = props => {
     } catch (e) {
       console.log("Password is not correct")
       console.error(e);
+      return 
     }
 
     // clear form values
@@ -142,11 +143,7 @@ const Login = props => {
           </Button>
         </form>
 
-        {error && <div>Login failed</div>}
-        {/* conlose.log(password or email is not correct)
-        <div className={classes.root}>
-      <Alert severity="error">This is an error alert — check it out!</Alert>
-      </div> */}
+        {error && <div><Alert severity="error">Username or password in not correct</Alert></div>}
       </div>
       <Box mt={8}>
       </Box>
