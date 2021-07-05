@@ -1,40 +1,23 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
-
-const FriendsList = () => {
-  const classes = useStyles();
+const FriendList = ({ friendCount, username, friends }) => {
+  if (!friends || !friends.length) {
+    return <p className="bg-dark text-light p-3">{username}, make some friends!</p>;
+  }
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>...user friend</Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>...user friend</Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>... user friend</Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>...user friend</Paper>
-        </Grid>
-      </Grid>
+    <div>
+      <h5>
+        {username}'s {friendCount} {friendCount === 1 ? 'friend' : 'friends'}
+      </h5>
+      {friends.map(friend => (
+        <button className="btn w-100 display-block mb-2" key={friend._id}>
+          <Link to={`/profile/${friend.username}`}>{friend.username}</Link>
+        </button>
+      ))}
     </div>
   );
-}
+};
 
-export default FriendsList;
+export default FriendList;

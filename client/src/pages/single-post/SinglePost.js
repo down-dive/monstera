@@ -1,10 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-// import ReplyList from '../components/ReplyList';
-// import ReplyForm from '../components/ReplyForm';
+import ReplyList from '../../components/ReplyList';
+import ReplyForm from '../../components/ReplyForm';
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 
-// import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_POST } from "../../utils/queries";
 
@@ -22,7 +24,23 @@ const SinglePost = props => {
   }
 
   return (
-    <div>
+    <Paper>
+      <Grid container spacing={4}>
+        <Grid item xs={12}></Grid>
+      </Grid>
+      <Grid item xs={12}></Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12}></Grid>
+      </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12}></Grid>
+      </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12}></Grid>
+      </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12}></Grid>
+      </Grid>
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
@@ -35,10 +53,10 @@ const SinglePost = props => {
         </div>
       </div>
 
-      {/* {post.reactionCount > 0 && <ReplyList replies={post.replies} />}
+      {post.replyCount > 0 && <ReplyList replies={post.replies} />}
 
-      {Auth.loggedIn() && <ReplyForm postId={post._id} />} */}
-    </div>
+      {Auth.loggedIn() && <ReplyForm postId={post._id} />}
+    </Paper>
   );
 };
 
