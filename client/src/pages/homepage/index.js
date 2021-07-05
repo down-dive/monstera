@@ -6,12 +6,16 @@ import Grid from "@material-ui/core/Grid";
 import PostForm from "../../components/PostForm";
 import DangerButton from "../../components/DangerButton";
 import PostList from "../../components/PostList";
+
+import FriendList from "../../components/Friends-list";
 import NotificationList from "../../components/NotificationList";
-// import Post from "../../components/Single-post";
 
 import Auth from "../../utils/auth";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_ME, QUERY_POSTS } from "../../utils/queries";
+import { QUERY_POSTS, QUERY_ME_BASIC } from "../../utils/queries";
+
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 const Homepage = (props) => {
   const { loading, data } = useQuery(QUERY_POSTS);
-  // const { data: userData } = useQuery(QUERY_ME_BASIC);
+  const { data: userData } = useQuery(QUERY_ME_BASIC);
   const posts = data?.posts || [];
 
   const loggedIn = Auth.loggedIn();
@@ -59,6 +63,18 @@ const Homepage = (props) => {
       >
         <Grid item xs={3}>
           <DangerButton />
+
+          {/* <Paper className={classes.paper}>local resources/links</Paper> */}
+
+          {loggedIn && userData ? (
+            <Paper className={classes.paper}>
+              <FriendList
+                username={userData.me.username}
+                friendCount={userData.me.friendCount}
+                friends={userData.me.friends}
+              />
+            </Paper>
+          ) : null}
         </Grid>
         {loggedIn && (
           <Grid item xs={5}>
@@ -85,15 +101,6 @@ const Homepage = (props) => {
         <Grid item xs={3}>
           <Paper className={classes.paper}>local resources/links</Paper>
         </Grid>
-        {/* {loggedIn && userData ? (
-          <div className="col-12 col-lg-3 mb-3">
-            <FriendList
-              username={userData.me.username}
-              friendCount={userData.me.friendCount}
-              friends={userData.me.friends}
-            />
-          </div>
-        ) : null} */}
       </Grid>
     </main>
   );
