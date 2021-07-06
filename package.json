@@ -4,6 +4,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server/server.js",
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "concurrently": "^6.2.0",
     "faker": "^5.5.3",
     "react-router-dom": "^5.2.0"
