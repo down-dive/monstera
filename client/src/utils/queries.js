@@ -112,3 +112,18 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
+
+export const QUERY_ALL_USERS = gql`
+  {
+    users {
+      _id
+      username
+      email
+      friendCount
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;

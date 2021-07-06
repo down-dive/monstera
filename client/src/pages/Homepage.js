@@ -63,22 +63,22 @@ const Homepage = (props) => {
         {loggedIn && (
           <Grid item xs={5}>
             {" "}
-            <div className="card mb-3">
+            <Paper className={classes.paper}>
               <PostForm />
-            </div>
+            </Paper>
             { props.showNotifications && (
               <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
                 <NotificationList notifications={props.notifications} />
               </Paper>
             )
             }
-            <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
+            <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
               {loading ? (
                 <div>Loading...</div>
               ) : (
                 <PostList posts={posts} title="Some Feed for Post(s)..." />
               )}
-            </div>
+            </Paper>
           </Grid>
         )}
 

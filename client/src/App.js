@@ -4,14 +4,13 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 // import { setContext } from '@apollo/client/link/context';
 
-// import './index.css';
+import './App.css';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import SignInSignUp from './pages/SignIn';
 import Homepage from './pages/Homepage';
 // import SinglePost from './pages/single-post/SinglePost';
 import Welcome from './pages/Welcome';
-
 
 import Footer from './components/Footer';
 import SearchBar from './components/Search-bar'
