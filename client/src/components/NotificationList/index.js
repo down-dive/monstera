@@ -21,6 +21,7 @@ const NotificationList = ({ notifications }) => {
                         </Link>{" "}
                         posted on {notification.createdAt}
                     </p>
+                    { notification.lat && notification.long && <a target="_blank" href={`http://maps.google.com/maps?q=${notification.lat},${notification.long}`}>See {notification.createdBy}'s location</a>}
                     <div className="card-body">
                         <Link to={`/post/${notification.postId}`}>
                             <p>{notification.noteContent}</p>
