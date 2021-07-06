@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
+// import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
@@ -16,13 +16,12 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
-import NotificationBell from '../NotificationBell';
+import NotificationBell from "../NotificationBell";
 import DangerButton from "../../components/DangerButton";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import Auth from '../../utils/auth';
-
+import Auth from "../../utils/auth";
 
 const drawerWidth = 240;
 
@@ -144,7 +143,7 @@ const useStyles = makeStyles(theme => ({
   },
   customizeToolbar: {
     minHeight: 10,
-}
+  },
 }));
 
 // function HomeIcon(props) {
@@ -178,7 +177,6 @@ export default function PersistentDrawerLeft(props) {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
@@ -213,9 +211,12 @@ export default function PersistentDrawerLeft(props) {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <NotificationBell setShowNotifications={props.setShowNotifications} setNotifications={props.setNotifications}/>
+            <NotificationBell
+              setShowNotifications={props.setShowNotifications}
+              setNotifications={props.setNotifications}
+            />
           </div>
-          <nav className="text-center">
+
           {Auth.loggedIn() ? (
             <>
               <a href="/" onClick={logout}>
@@ -227,7 +228,6 @@ export default function PersistentDrawerLeft(props) {
               <Link to="/signin">Login</Link>
             </>
           )}
-        </nav>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -251,7 +251,7 @@ export default function PersistentDrawerLeft(props) {
         <Divider />
         <List>
           <ListItem button>
-          <DangerButton />
+            <DangerButton />
           </ListItem>
           <ListItemLink href="/">
             <ListItemText primary="Home" />
