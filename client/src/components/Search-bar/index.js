@@ -19,6 +19,10 @@ import InputBase from "@material-ui/core/InputBase";
 import NotificationBell from "../NotificationBell";
 import DangerButton from "../../components/DangerButton";
 
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_ALL_USERS } from "../../utils/queries";
+import Profile from '../../pages/Profile';
+
 import { Link } from "react-router-dom";
 
 import Auth from "../../utils/auth";
@@ -184,7 +188,9 @@ export default function PersistentDrawerLeft(props) {
       const searched = data?.users.filter(user => (
         user.username.toLowerCase().includes(searchField.toLowerCase())
       ));
-      console.log(searched);
+    console.log(searched[0].username)
+    // return <Link to={`/profile/${searched[0].username}`} />
+
     } catch (e) {
       console.error(e);
     }
