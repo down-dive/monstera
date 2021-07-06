@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import clsx from "clsx";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -18,6 +18,10 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import NotificationBell from "../NotificationBell";
 import DangerButton from "../../components/DangerButton";
+
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_ALL_USERS } from "../../utils/queries";
+import Profile from '../../pages/Profile';
 
 import { Link } from "react-router-dom";
 
@@ -175,6 +179,23 @@ export default function PersistentDrawerLeft(props) {
     setOpen(false);
   };
 
+  const [searchField, setSearchField] = useState('');
+  const {loading, error, data} = useQuery(QUERY_ALL_USERS);
+  const handleChange = async (e) => {
+    setSearchField(e.target.value);
+    // console.log(data);
+    try {
+      const searched = data?.users.filter(user => (
+        user.username.toLowerCase().includes(searchField.toLowerCase())
+      ));
+    console.log(searched[0].username)
+    // return <Link to={`/profile/${searched[0].username}`} />
+
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   return (
     <div className={classes.root}>
       <AppBar
@@ -207,6 +228,7 @@ export default function PersistentDrawerLeft(props) {
                 input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
+              onChange= {handleChange}
             />
           </div>
           <div className={classes.grow} />
