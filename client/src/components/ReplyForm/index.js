@@ -8,6 +8,10 @@ const ReplyForm = ({ postId }) => {
   const [characterCount, setCharacterCount] = useState(0);
   const [addReply, { error }] = useMutation(ADD_REPLIES);
 
+  const handleReplies = () => {
+     
+  }
+
   // update state based on form input changes
   const handleChange = event => {
     if (event.target.value.length <= 280) {
