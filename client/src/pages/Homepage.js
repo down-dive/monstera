@@ -3,16 +3,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
-import PostForm from "../../components/PostForm";
-import DangerButton from "../../components/DangerButton";
-import PostList from "../../components/PostList";
+import PostForm from "../components/PostForm";
+import DangerButton from "../components/DangerButton";
+import PostList from "../components/PostList";
 
-import FriendList from "../../components/Friends-list";
-import NotificationList from "../../components/NotificationList";
+import FriendList from "../components/Friends-list";
+import NotificationList from "../components/NotificationList";
 
-import Auth from "../../utils/auth";
+import Auth from "../utils/auth";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_POSTS, QUERY_ME_BASIC } from "../../utils/queries";
+import { QUERY_POSTS, QUERY_ME_BASIC } from "../utils/queries";
 
 
 

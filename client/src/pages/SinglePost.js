@@ -1,14 +1,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import ReplyList from '../../components/ReplyList';
-import ReplyForm from '../../components/ReplyForm';
+import ReplyList from '../components/ReplyList';
+import ReplyForm from '../components/ReplyForm';
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
-import Auth from '../../utils/auth';
+import Auth from '../utils/auth';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_POST } from "../../utils/queries";
+import { QUERY_POST } from "../utils/queries";
 
 const SinglePost = props => {
   const { id: postId } = useParams();

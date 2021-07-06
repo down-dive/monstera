@@ -1,10 +1,10 @@
 :root {
-  --primary: #497573;
-  --secondary: #99f7f2;
+  --primary: #19c98e;
+  --secondary: #5ca75c;
   --tertiary: #b2c2c1;
-  --quatrinary: #cadbda;
-  --light: #e1f5f4;
-  --dark: #6c7575;
+  --quatrinary: #b8d8b9;
+  --light: #beffdb;
+  --dark: #4c5353;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -31,7 +31,7 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-image: url(../src/images/background.png);
+  background-image: url(../src/images/background2.png);
   background-size: cover;
 }
 
@@ -108,8 +108,7 @@ nav a:hover {
   font-size: 2.5rem;
 }
 
-.btn,
-.pill {
+.btn {
   font-size: 1.3rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
@@ -122,8 +121,7 @@ nav a:hover {
   transition: all 0.5s;
 }
 
-.btn:hover,
-.pill:hover {
+.btn:hover {
   color: var(--secondary);
   background-color: var(--dark);
 }
@@ -152,6 +150,17 @@ nav a:hover {
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
+}
+
+footer {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  color: white;
 }
 
 /* FORM */
