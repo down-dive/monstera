@@ -4,6 +4,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import PostForm from '../components/PostForm';
 import PostList from '../components/PostList';
 import FriendList from '../components/Friends-list';
+import ProfileImage from '../components/ProfileImage';
 
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -81,6 +82,7 @@ const Profile = props => {
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
+        {/* <ProfileImage /> */}
 
         {userParam && (
           <div>
