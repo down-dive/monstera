@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 
-import PostForm from '../../components/PostForm';
-import PostList from '../../components/PostList';
-import FriendList from '../../components/Friends-list';
+import PostForm from '../components/PostForm';
+import PostList from '../components/PostList';
+import FriendList from '../components/Friends-list';
 
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { QUERY_USER, QUERY_ME } from '../../utils/queries';
-import { ADD_FRIEND, REMOVE_FRIEND } from '../../utils/mutations';
-import Auth from '../../utils/auth';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const Profile = props => {
   const { username: userParam } = useParams();
