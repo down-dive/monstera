@@ -40,6 +40,8 @@ const typeDefs = gql`
         createdBy: String
         createdAt: String
         postId: ID
+        lat: String
+        long: String
     }
 
     type Auth {
@@ -67,6 +69,7 @@ const typeDefs = gql`
         deleteFriend(friendId: ID!): User
         deleteNotification(notificationId: ID!): User
         deleteReply(replyId: ID!): Post
+        clearNotifications: User
     }
 `;
 

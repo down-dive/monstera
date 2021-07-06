@@ -93,6 +93,8 @@ export const QUERY_ME = gql`
         createdBy
         createdAt
         postId
+        lat
+        long
       }
     }
   }
