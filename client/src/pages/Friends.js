@@ -1,11 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import FriendList from "../../components/Friends-list";
-import SearchBar from "../../components/Search-bar";
-import Auth from "../../utils/auth";
+import FriendList from "../components/Friends-list";
+import SearchBar from "../components/Search-bar";
+import Auth from "../utils/auth";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_POSTS, QUERY_ME_BASIC } from "../../utils/queries";
+import { QUERY_POSTS, QUERY_ME_BASIC } from "../utils/queries";
 
 const useStyles = makeStyles(theme => ({
   root: {

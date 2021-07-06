@@ -7,10 +7,10 @@ import ApolloClient from 'apollo-boost';
 import './App.css';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
-import SignInSignUp from './pages/Sign-in-sign-up';
+import SignInSignUp from './pages/SignIn';
 import Homepage from './pages/Homepage';
-import SinglePost from './pages/single-post/SinglePost';
-import Welcome from './pages/Welcome/index.js';
+// import SinglePost from './pages/single-post/SinglePost';
+import Welcome from './pages/Welcome';
 
 import Footer from './components/Footer';
 import SearchBar from './components/Search-bar'
@@ -46,7 +46,7 @@ function App() {
                   <Route exact path="/" render={(props) => <Homepage showNotifications={showNotifications} notifications={notifications}/>}/>
                   <Route exact path="/profile/:username?" component={Profile} />
                   <Route exact path="/friends" component={Friends} />
-                  <Route exact path="/post/:id" component={SinglePost} />
+                  {/* <Route exact path="/post/:id" component={SinglePost} /> */}
                 </>
               ) : (
                 <>
