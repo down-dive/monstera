@@ -14,6 +14,7 @@ import Welcome from './pages/Welcome';
 
 import Footer from './components/Footer';
 import SearchBar from './components/Search-bar'
+import Resources from './components/Resources';
 
 import Auth from './utils/auth';
 
@@ -46,6 +47,7 @@ function App() {
                   <Route exact path="/" render={(props) => <Homepage showNotifications={showNotifications} notifications={notifications}/>}/>
                   <Route exact path="/profile/:username?" component={Profile} />
                   <Route exact path="/friends" component={Friends} />
+                  <Route exact path="/resources" component={Resources} />
                   {/* <Route exact path="/post/:id" component={SinglePost} /> */}
                 </>
               ) : (
