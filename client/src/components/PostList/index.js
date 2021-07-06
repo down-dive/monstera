@@ -38,12 +38,12 @@ const PostList = ({ posts }) => {
           <CardContent key={post._id} className="card mb-3">
             <Typography
               className={classes.title}
-              color="textSecondary"
+              style={{ color: "grey" }}
               gutterBottom
             >
               <Link
                 to={`/profile/${post.username}`}
-                style={{ fontWeight: 700 }}
+                style={{ fontWeight: 700, fontSize: 26, color: "white" }}
                 className="text-light"
               >
                 {post.username}
@@ -51,7 +51,7 @@ const PostList = ({ posts }) => {
               post on {post.createdAt}
             </Typography>
             <Typography className="card-body">
-              <Typography>{post.postContent}</Typography>
+              <span className="text-light">{post.postContent}</span>
             </Typography>
             <CardActions>
               <ReplyForm />

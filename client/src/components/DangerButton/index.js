@@ -13,7 +13,7 @@ function DangerButton() {
         });
     }
     return (
-        <div style={{height: '100%', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div style={{height: '100%', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px'}}>
             <div style={{height: '100px', width: '100px', backgroundColor: 'green', borderRadius: 50}} onClick={handleDanger}>
             </div>
         </div>
