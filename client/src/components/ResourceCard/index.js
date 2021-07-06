@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function MediaCard() {
+export default function MediaCard(name, description, url, image) {
     const classes = useStyles();
 
     return (
@@ -25,22 +25,21 @@ export default function MediaCard() {
             <CardActionArea>
                 <CardMedia
                     className="media-img"
-                    image="/img/NCADV.jpg"
+                    image={image}
                     title="Contemplative Reptile"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        NCADV
+                        {name}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Resource for victims and survivors of domestic violence
-                        This includes a list of national crisis organizations and assistance
+                        {description}
                     </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary">
-                    <a href="https://ncadv.org/resources">Learn More</a>
+                    <a href={url}>Learn More</a>
                 </Button>
             </CardActions>
         </Card>

@@ -3,21 +3,21 @@
         "id": 1,
         "name": "211bayarea",
         "description": "2-1-1 Bay Area, a program of United Way, is the comprehensive information and referral service for San Francisco, San Mateo, Napa, Marin, Santa Clara, and Solano counties. We connect over 37,000 Bay Area callers and texters each year with information about health and human services available to them.",
-        "Url": "https://www.211bayarea.org/sanfrancisco/housing/shelters/domestic-violence-shelters/",
+        "url": "https://www.211bayarea.org/sanfrancisco/housing/shelters/domestic-violence-shelters/",
         "image": "./img/211BayArea.jpg"
     },
     {
         "id": 2,
         "name": "NCADV",
         "description": "Resource for victims and survivors of domestic violence. This includes a list of national crisis organizations and assistance",
-        "Url": "https://ncadv.org/resources",
+        "url": "https://ncadv.org/resources",
         "image": "./img/NCADV.jpg"
     },
     {
         "id": 3,
         "name": "Domestic Resource Violence Network",
         "description": "The Domestic Violence Resource Network (DVRN) is funded by the U.S. Department of Health and Human Services to inform and strengthen domestic violence intervention and prevention efforts at the individual, community, and societal levels.",
-        "Url": "https://www.acf.hhs.gov/fysb/fv-centers",
+        "url": "https://www.acf.hhs.gov/fysb/fv-centers",
         "image": "./img/DVRN.jpg"
     }
 ]
