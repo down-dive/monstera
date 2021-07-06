@@ -35,8 +35,6 @@ const Homepage = props => {
   const loggedIn = Auth.loggedIn();
   const classes = useStyles();
 
-  
-
   return (
     <main>
       <Grid

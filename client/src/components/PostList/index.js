@@ -7,7 +7,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ReplyForm from "../ReplyForm";
-import { PossibleTypeExtensionsRule } from "graphql";
 
 const useStyles = makeStyles({
   root: {
@@ -32,10 +31,8 @@ const PostList = ({ posts }) => {
     return <h3>No Posts Yet</h3>;
   }
 
-  console.log(posts)
-
   return (
-    <div className={classes.root} >
+    <div className={classes.root}>
       {posts &&
         posts.slice(0, 5).map(post => (
           <CardContent key={post._id} className="card mb-3">
@@ -57,7 +54,7 @@ const PostList = ({ posts }) => {
               <span className="text-light">{post.postContent}</span>
             </Typography>
             <CardActions>
-              <ReplyForm  post_id={post._id}/>
+              <ReplyForm />
             </CardActions>
             <Typography>Replies: {post.replyCount}</Typography>
           </CardContent>

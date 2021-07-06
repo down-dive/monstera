@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_REPLIES} from '../../utils/mutations';
 
-
-const ReplyForm = (props) => {
-   let postId = props.post_id
+const ReplyForm = ({ postId }) => {
   const [replyContent, setContent] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
   const [addReply, { error }] = useMutation(ADD_REPLIES);
@@ -17,16 +15,15 @@ const ReplyForm = (props) => {
       setCharacterCount(event.target.value.length);
     }
   };
-  
+
   // submit form
   const handleFormSubmit = async event => {
-    console.log(props)
     event.preventDefault();
 
     try {
       await addReply({
-        variables: { replyContent, postId}
-      }).then(data => (console.log(data)))
+        variables: { replyContent, postId }
+      });
 
       // clear form value
       setContent('');
