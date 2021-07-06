@@ -75,7 +75,7 @@ const PostForm = () => {
           label="How's it Going?"
           value={postContent}
           multiline
-          fullWidth
+          fullWidth         
           rows={4}
           variant="outlined"
           onChange={handleChange}
@@ -89,7 +89,7 @@ const PostForm = () => {
           {error && <span className="ml-2">Something went wrong...</span>}
         </p>
         <button className="btn col-12 col-md-3" type="submit">
-          Submit
+          send
         </button>
       </form>
     </div>

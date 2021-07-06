@@ -48,14 +48,14 @@ const ReplyForm = ({ postId }) => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Leave a reply to this post..."
+          placeholder="Leave some nice words..."
           value={replyContent}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
 
         <button className="btn col-12 col-md-3" type="submit">
-          Submit
+          comment
         </button>
       </form>
 

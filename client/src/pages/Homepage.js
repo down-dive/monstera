@@ -14,9 +14,6 @@ import Auth from "../utils/auth";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_POSTS, QUERY_ME_BASIC } from "../utils/queries";
 
-
-
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -25,10 +22,12 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
+    margin: 10
+    
   },
 }));
 
-const Homepage = (props) => {
+const Homepage = props => {
   const { loading, data } = useQuery(QUERY_POSTS);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
   const posts = data?.posts || [];
@@ -41,17 +40,17 @@ const Homepage = (props) => {
       <Grid
         container
         direction="row"
-        justify="flex-start"
+        justify="space-around"
         alignItems="flex-start"
         spacing={4}
       >
-        <Grid item xs={3}>
+        <Grid container justify= "center" item xs={3}>
           <DangerButton />
 
           {/* <Paper className={classes.paper}>local resources/links</Paper> */}
 
           {loggedIn && userData ? (
-            <Paper className={classes.paper}>
+            <Paper container className={classes.paper}>
               <FriendList
                 username={userData.me.username}
                 friendCount={userData.me.friendCount}
@@ -66,12 +65,11 @@ const Homepage = (props) => {
             <Paper className={classes.paper}>
               <PostForm />
             </Paper>
-            { props.showNotifications && (
+            {props.showNotifications && (
               <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
                 <NotificationList notifications={props.notifications} />
               </Paper>
-            )
-            }
+            )}
             <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
               {loading ? (
                 <div>Loading...</div>
