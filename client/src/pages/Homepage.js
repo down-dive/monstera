@@ -9,6 +9,8 @@ import PostList from "../components/PostList";
 
 import FriendList from "../components/Friends-list";
 import NotificationList from "../components/NotificationList";
+import ResourceCard from "../components/ResourceCard";
+import resource from '../mainResources.json';
 
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/react-hooks";
@@ -23,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
     margin: 10
-    
+
   },
 }));
 
@@ -35,7 +37,7 @@ const Homepage = props => {
   const loggedIn = Auth.loggedIn();
   const classes = useStyles();
 
-  
+
 
   return (
     <main>
@@ -46,7 +48,7 @@ const Homepage = props => {
         alignItems="flex-start"
         spacing={4}
       >
-        <Grid container justify= "center" item xs={3}>
+        <Grid container justify="center" item xs={3}>
           <DangerButton />
 
           {/* <Paper className={classes.paper}>local resources/links</Paper> */}
@@ -82,9 +84,20 @@ const Homepage = props => {
           </Grid>
         )}
 
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>local resources/links</Paper>
-        </Grid>
+        {
+          resource.map(resource => {
+            return (
+              <Grid item xs={12} md={4} key={resource.id}>
+                <ResourceCard
+                  name={resource.name}
+                  description={resource.description}
+                  url={resource.url}
+                  image={resource.image}
+                />
+              </Grid>
+            )
+          })
+        }
       </Grid>
     </main>
   );
