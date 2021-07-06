@@ -38,22 +38,6 @@ const Homepage = (props) => {
 
   return (
     <main>
-      <Grid container spacing={4}>
-        <Grid item xs={12}></Grid>
-      </Grid>
-      <Grid item xs={12}></Grid>
-      <Grid container spacing={4}>
-        <Grid item xs={12}></Grid>
-      </Grid>
-      <Grid container spacing={4}>
-        <Grid item xs={12}></Grid>
-      </Grid>
-      <Grid container spacing={4}>
-        <Grid item xs={12}></Grid>
-      </Grid>
-      <Grid container spacing={4}>
-        <Grid item xs={12}></Grid>
-      </Grid>
       <Grid
         container
         direction="row"
@@ -79,22 +63,22 @@ const Homepage = (props) => {
         {loggedIn && (
           <Grid item xs={5}>
             {" "}
-            <Paper className={classes.paper}>
+            <div className="card mb-3">
               <PostForm />
-            </Paper>
+            </div>
             { props.showNotifications && (
               <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
                 <NotificationList notifications={props.notifications} />
               </Paper>
             )
             }
-            <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
+            <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
               {loading ? (
                 <div>Loading...</div>
               ) : (
                 <PostList posts={posts} title="Some Feed for Post(s)..." />
               )}
-            </Paper>
+            </div>
           </Grid>
         )}
 
