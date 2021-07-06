@@ -17,6 +17,14 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         },
+        //get all users
+        users: async (parent, args, context) => {
+            if (context.user) {
+                return User.findAll();
+            }
+
+            throw new AuthenticationError('Not logged in');
+        },
         // get all posts
         posts: async (parent, { username }, context) => {
             const params = username ? { username } : {};
@@ -85,12 +93,12 @@ const resolvers = {
                     { $push: { posts: post._id } },
                     { new: true }
                 );
-                
+
                 if (args.sos) {
                     // create a notification
                     const notificationObj = {
                         noteContent: "I am in danger!",
-                        createdBy:  context.user.username,
+                        createdBy: context.user.username,
                         lat: args.lat ? args.lat : null,
                         long: args.long ? args.long : null,
                         postId: post._id,
@@ -104,8 +112,8 @@ const resolvers = {
                         var friend = friends[i];
                         console.log(notification);
                         const user = await User.findByIdAndUpdate(
-                            { _id: friend},
-                            { $push: { notifications: notification._id} },
+                            { _id: friend },
+                            { $push: { notifications: notification._id } },
                             { new: true }
                         );
                     }
@@ -128,41 +136,41 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in!');
         },
-        addNotification: async (_parent,_args, context) => {
+        addNotification: async (_parent, _args, context) => {
             if (context.user) {
                 var friends = context.user.friends;
                 var notifications = [];
                 var success = false;
-                for(var i = 0; i < friends.length; i++) {
-                  var friend = friends[i];
-                   var  notificationObj = {
-                       noteContent: "I am in danger!", 
-                       createBy: context.user._id, 
-                       notificationTo: friend
-                   }
-                   notifications.push(notificationObj);
+                for (var i = 0; i < friends.length; i++) {
+                    var friend = friends[i];
+                    var notificationObj = {
+                        noteContent: "I am in danger!",
+                        createBy: context.user._id,
+                        notificationTo: friend
+                    }
+                    notifications.push(notificationObj);
                 }
-                
+
                 try {
-                 var note = await Notification.insertMany(notifications);
-                 success = true;
-                } catch(e) {
+                    var note = await Notification.insertMany(notifications);
+                    success = true;
+                } catch (e) {
                     console.log("err", e)
                     success = false;
                 }
-        
 
-                return {successful: success};
+
+                return { successful: success };
             }
 
             throw new AuthenticationError('You need to be logged in!');
         },
-        addReply: async (parent, { postId, replyContent}, context) => {
-            if(context.user) {
+        addReply: async (parent, { postId, replyContent }, context) => {
+            if (context.user) {
                 const updatedPost = await Post.findOneAndUpdate(
                     { _id: postId },
                     { $push: { replies: { replyContent, username: context.user.username } } },
-                    { new: true, runValidators: true}
+                    { new: true, runValidators: true }
                 );
 
                 return updatedPost;
@@ -211,10 +219,10 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         deleteReply: async (parent, { replyId }, context) => {
-            if(context.user) {
+            if (context.user) {
                 const updatedPost = await Post.findOneAndUpdate(
                     { username: context.user.username },
-                    { $pull: { replies: {_id: replyId} }},
+                    { $pull: { replies: { _id: replyId } } },
                     { new: true }
                 ).populate('replies');
 
