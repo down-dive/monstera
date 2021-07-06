@@ -1,18 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import ReplyForm from  "../ReplyForm";
+
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+  },
+  // bullet: {
+  //   display: 'inline-block',
+  //   margin: '0 2px',
+  //   transform: 'scale(0.8)',
+  // },
+  title: {
+    fontSize: 18,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
 
 const PostList = ({ posts }) => {
+  const classes = useStyles();
   if (!posts) {
     return <h3>No Posts Yet</h3>;
   }
 
+  
+
   return (
-    <div>
-      {/* <h3>{title}</h3> */}
+    <card className={classes.root}>
       {posts &&
-        posts.map(post => (
-          <div key={post._id} className="card mb-3">
-            <p className="card-header">
+        posts.slice(0, 5).map(post => (
+          <CardContent key={post._id} className="card mb-3">
+            <Typography className={classes.title} color="textSecondary" gutterBottom>
               <Link
                 to={`/profile/${post.username}`}
                 style={{ fontWeight: 700 }}
@@ -21,19 +47,22 @@ const PostList = ({ posts }) => {
                 {post.username}
               </Link>{" "}
               post on {post.createdAt}
-            </p>
-            <div className="card-body">
+            </Typography>
+            <Typography className="card-body">
               <Link to={`/post/${post._id}`}>
-                <p>{post.postContent}</p>
-                <p className="mb-0">
+                <Typography>{post.postContent}</Typography>
+                <Typography className="mb-0">
                   Replies: {post.replyCount} || Click to{" "}
                   {post.replyCount ? "see" : "start"} the discussion!
-                </p>
+                </Typography>
               </Link>
-            </div>
-          </div>
+            </Typography>
+            <CardActions>
+          <Button size="small"><ReplyForm /></Button>
+        </CardActions>
+          </CardContent>
         ))}
-    </div>
+    </card>
   );
 };
 
