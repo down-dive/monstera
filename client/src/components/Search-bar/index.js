@@ -271,7 +271,7 @@ export default function PersistentDrawerLeft(props) {
           </IconButton>
         </div>
         <Divider />
-        <List>
+        <List >
           <ListItem button>
             <DangerButton />
           </ListItem>
