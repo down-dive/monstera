@@ -72,13 +72,13 @@ const Homepage = (props) => {
               </Paper>
             )
             }
-            <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
+            <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
               {loading ? (
                 <div>Loading...</div>
               ) : (
                 <PostList posts={posts} title="Some Feed for Post(s)..." />
               )}
-            </Paper>
+            </div>
           </Grid>
         )}
 
