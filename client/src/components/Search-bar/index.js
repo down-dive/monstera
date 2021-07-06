@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import clsx from "clsx";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -22,6 +22,8 @@ import DangerButton from "../../components/DangerButton";
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_ALL_USERS } from "../../utils/queries";
 
 
 const drawerWidth = 240;
@@ -176,6 +178,21 @@ export default function PersistentDrawerLeft(props) {
     setOpen(false);
   };
 
+  const [searchField, setSearchField] = useState('');
+  const {loading, error, data} = useQuery(QUERY_ALL_USERS);
+  const handleChange = async (e) => {
+    setSearchField(e.target.value);
+    // console.log(data);
+    try {
+      const searched = data?.users.filter(user => (
+        user.username.toLowerCase().includes(searchField.toLowerCase())
+      ));
+      console.log(searched);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -209,6 +226,7 @@ export default function PersistentDrawerLeft(props) {
                 input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
+              onChange= {handleChange}
             />
           </div>
           <div className={classes.grow} />
