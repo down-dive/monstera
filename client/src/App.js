@@ -8,7 +8,7 @@ import './App.css';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import SignInSignUp from './pages/Sign-in-sign-up';
-import Homepage from './pages/Homepage';
+import Homepage from './pages/homepage';
 import SinglePost from './pages/single-post/SinglePost';
 import Welcome from './pages/Welcome/index.js';
 
