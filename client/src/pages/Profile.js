@@ -12,7 +12,7 @@ import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Profile = props => {
-  const { username: userParam } = useParams();
+  const {username: userParam } = useParams();
 
   const [addFriend] = useMutation(ADD_FRIEND);
   const [removeFriend] = useMutation(REMOVE_FRIEND);

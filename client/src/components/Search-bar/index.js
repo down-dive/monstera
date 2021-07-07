@@ -18,10 +18,12 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import NotificationBell from "../NotificationBell";
 import DangerButton from "../../components/DangerButton";
-
+import { FIND_USER } from "../../utils/mutations";
+import { QUERY_USER} from "../../utils/queries"
 import { Link } from "react-router-dom";
 
 import Auth from "../../utils/auth";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 
 const drawerWidth = 240;
 
@@ -166,6 +168,7 @@ export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [searchName, setSearchName] = React.useState()
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -174,6 +177,17 @@ export default function PersistentDrawerLeft(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleChange =  (e) => {
+    setSearchName(e.target.value)
+    console.log(searchName)
+  }
+
+  const { loading, data } = useQuery(QUERY_USER, {
+    variables: { username: searchName }
+  });
+
+  console.log(data)
 
   return (
     <div className={classes.root}>
@@ -201,7 +215,7 @@ export default function PersistentDrawerLeft(props) {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search…" onChange={handleChange}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
