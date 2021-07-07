@@ -84,13 +84,13 @@ export default function BottomAppBar() {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <Link href="https://github.com/sshahram" >
+                      <Link href="https://github.com/jypara-git" >
                         <GitHubIcon />
 
                       </Link>
                     </Grid>
                     <Grid item xs={12}>
-                      <Link href="https://www.linkedin.com/in/shirin-shahram/" >
+                      <Link href="http://linkedin.com/in/zhypara-abdieva-907746203" >
                         <LinkedInIcon />
 
                       </Link>
@@ -110,13 +110,13 @@ export default function BottomAppBar() {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <Link href="https://github.com/sshahram" >
+                      <Link href="https://github.com/kingkevin05" >
                         <GitHubIcon />
 
                       </Link>
                     </Grid>
                     <Grid item xs={12}>
-                      <Link href="https://www.linkedin.com/in/shirin-shahram/" >
+                      <Link href="https://www.linkedin.com/in/kevinlawrence05/" >
                         <LinkedInIcon />
 
                       </Link>
