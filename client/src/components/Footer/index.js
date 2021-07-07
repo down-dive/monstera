@@ -63,62 +63,41 @@ export default function BottomAppBar() {
                     <Grid item xs={6}>
                       <Link href="https://www.linkedin.com/in/shirin-shahram/" >
                         <LinkedInIcon />
-
                       </Link>
                     </Grid>
                   </Grid>
-                </Grid>
+                  </Grid>
                 <Grid item xs={3}>
-                <Grid container spacing={1}>
+                  <Grid container spacing={1}>
                     <Grid item xs={12}>
-                      Shirin Shahram
+                      Zhypara Abdieva
                     </Grid>
                     {/* <Grid item xs={12}>
                     <img src="https://ibb.co/ynHW3vj" alt='random view image' />
                     </Grid> */}
                     <Grid item xs={6}>
-                      <Link href="https://github.com/sshahram" >
+                      <Link href="https://github.com/jypara-git" >
                         <GitHubIcon />
 
                       </Link>
                     </Grid>
                     <Grid item xs={6}>
-                      <Link href="https://www.linkedin.com/in/shirin-shahram/" >
+                      <Link href="https://www.linkedin.com/in/zhypara-abdieva-907746203/" >
                         <LinkedInIcon />
-
                       </Link>
                     </Grid>
                   </Grid>
-                  {/* <Grid container spacing={1}>
-                    <Grid item xs={12}>
-                      Zhypara Abdieva
-                    </Grid>
-                    {/* <Grid item xs={12}>
-                    </Grid> */}
-                    {/* <Grid item xs={12}>
-                      <Link href="https://github.com/jypara-git" >
-                        <GitHubIcon />
-                      </Link>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Link href="http://linkedin.com/in/zhypara-abdieva-907746203" >
-                        <LinkedInIcon />
-                      </Link>
-                    </Grid>
-                  </Grid> */} 
-                </Grid>
+                  </Grid>
                 <Grid item xs={3}>
                   <Grid container spacing={1}>
                     <Grid item xs={12}>
                       Kevin Lawrence
                     </Grid>
                     {/* <Grid item xs={12}>
-<Image
-  src="https://ibb.co/ynHW3vj"
-/>
+                    <img src="https://ibb.co/ynHW3vj" alt='random view image' />
                     </Grid> */}
                     <Grid item xs={6}>
-                      <Link href="https://github.com/sshahram" >
+                      <Link href="https://github.com/kingkevin05" >
                         <GitHubIcon />
 
                       </Link>
@@ -126,11 +105,10 @@ export default function BottomAppBar() {
                     <Grid item xs={6}>
                       <Link href="https://www.linkedin.com/in/kevinlawrence05/" >
                         <LinkedInIcon />
-
                       </Link>
                     </Grid>
                   </Grid>
-                </Grid>
+                  </Grid>
                 <Grid item xs={3}>
                   <Grid container spacing={1}>
                     <Grid item xs={12}>
@@ -144,12 +122,12 @@ export default function BottomAppBar() {
                       />
                     </Grid> */}
                     <Grid item xs={6}>
-                      <Link href="https://github.com/sshahram" >
+                      <Link href="https://github.com/down-dive" >
                         <GitHubIcon />
                       </Link>
                     </Grid>
                     <Grid item xs={6}>
-                      <Link href="https://www.linkedin.com/in/shirin-shahram/" >
+                      <Link href="https://www.linkedin.com/in/yevgeniya-terluyk-034013179/" >
                         <LinkedInIcon />
 
                       </Link>
