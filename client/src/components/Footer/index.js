@@ -8,6 +8,7 @@ import Link from '@material-ui/core/Link';
 import Icon from '@material-ui/core/Icon';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import Image from 'material-ui-image'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,10 +52,8 @@ export default function BottomAppBar() {
                       Shirin Shahram
                     </Grid>
                     <Grid item xs={12}>
-                      <CardMedia
-                        className={classes.media}
-                        image="../../assets/Shirin.png"
-                        title="Paella dish"
+                      <Image
+                        src="../../assets/Shirin.png"
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -77,11 +76,9 @@ export default function BottomAppBar() {
                       Zhypara Abdieva
                     </Grid>
                     <Grid item xs={12}>
-                      <CardMedia
-                        className={classes.media}
-                        image="../../assets/Shirin.png"
-                        title="Paella dish"
-                      />
+                    <Image
+  src="http://loremflickr.com/300/200"
+/>
                     </Grid>
                     <Grid item xs={12}>
                       <Link href="https://github.com/jypara-git" >
@@ -103,11 +100,9 @@ export default function BottomAppBar() {
                       Kevin Lawrence
                     </Grid>
                     <Grid item xs={12}>
-                      <CardMedia
-                        className={classes.media}
-                        image="../../assets/Shirin.png"
-                        title="Paella dish"
-                      />
+<Image
+  src="https://ibb.co/ynHW3vj"
+/>
                     </Grid>
                     <Grid item xs={12}>
                       <Link href="https://github.com/kingkevin05" >

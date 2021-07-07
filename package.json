@@ -8,6 +8,7 @@
     "@material-ui/lab": "^4.0.0-alpha.58",
     "concurrently": "^6.2.0",
     "faker": "^5.5.3",
+    "material-ui-image": "^3.3.2",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {},
