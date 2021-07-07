@@ -35,6 +35,7 @@ const useStyles = makeStyles(theme => ({
     "& > svg": {
       margin: theme.spacing(2),
     },
+    
   },
   grow: {
     flexGrow: 1,
@@ -49,6 +50,7 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
+      backgroundColor: "white"
     }),
   },
   search: {

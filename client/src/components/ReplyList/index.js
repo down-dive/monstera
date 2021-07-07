@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const ReplyList = ({ replies }) => {
   return (
     <div className="card mb-3">
-      <div className="card-header">
+      {/* <div className="card-header">
         <span className="text-light">Replies</span>
-      </div>
+      </div> */}
       <div className="card-body">
         {replies &&
           replies.map(reply => (

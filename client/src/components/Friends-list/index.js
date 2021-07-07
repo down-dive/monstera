@@ -2,6 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { Grid } from "@material-ui/core";
+import { green } from '@material-ui/core/colors';
+import { withStyles } from '@material-ui/core/styles';
+
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(green[500]),
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },
+  },
+}))(Button);
 
 const FriendList = ({ friendCount, username, friends }) => {
   if (!friends || !friends.length) {
@@ -23,7 +36,7 @@ const FriendList = ({ friendCount, username, friends }) => {
         {username}'s {friendCount} {friendCount === 1 ? "friend" : "friends"}
       </h5>
       {friends.map(friend => (
-        <Button
+        <ColorButton
           variant="contained"
           color="primary"
           style={{ margin: 10 }}
@@ -37,7 +50,7 @@ const FriendList = ({ friendCount, username, friends }) => {
           >
             {friend.username}
           </Link>
-        </Button>
+        </ColorButton>
       ))}
     </Grid>
   );
