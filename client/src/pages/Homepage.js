@@ -50,21 +50,21 @@ const Homepage = props => {
           {/* <Paper className={classes.paper}>local resources/links</Paper> */}
 
           {loggedIn && userData ? (
-            <Paper container className={classes.paper}>
+            <div container className={classes.paper}>
               <FriendList
                 username={userData.me.username}
                 friendCount={userData.me.friendCount}
                 friends={userData.me.friends}
               />
-            </Paper>
+            </div>
           ) : null}
         </Grid>
         {loggedIn && (
           <Grid item xs={5}>
             {" "}
-            <Paper className={classes.paper}>
+            <div className={classes.paper}>
               <PostForm />
-            </Paper>
+            </div>
             {props.showNotifications && (
               <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
                 <NotificationList notifications={props.notifications} />

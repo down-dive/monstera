@@ -215,7 +215,7 @@ export default function PersistentDrawerLeft(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            MONSTREA
+            MONSTERA
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

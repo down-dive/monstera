@@ -11,6 +11,7 @@ import ReplyForm from "../ReplyForm";
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    
   },
   // bullet: {
   //   display: 'inline-block',
