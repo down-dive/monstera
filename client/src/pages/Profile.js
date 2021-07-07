@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 
+import UserProfile from '../components/User-profile';
 import ProfileImage from '../components/ProfileImage';
 import PostForm from "../components/PostForm";
 import PostList from "../components/PostList";
@@ -85,7 +86,7 @@ const Profile = props => {
         <h2 className="bg-dark text-secondary p-2 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
-        {/* <ProfileImage /> */}
+        <UserProfile />
 
         {userParam && (
           <div>

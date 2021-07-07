@@ -2,15 +2,20 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import CardMedia from '@material-ui/core/CardMedia';
+import Link from '@material-ui/core/Link';
+import Icon from '@material-ui/core/Icon';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import Image from 'material-ui-image'
+
+import './styles.css'
+
 
 const useStyles = makeStyles((theme) => ({
   text: {
     padding: theme.spacing(2, 2, 0),
-  },
-  paper: {
-    paddingBottom: 50,
   },
   list: {
     marginBottom: theme.spacing(2),
@@ -19,31 +24,120 @@ const useStyles = makeStyles((theme) => ({
     top: 'auto',
     bottom: 0,
   },
-  customizeToolbar: {
-    minHeight: 10,
-  },
   root: {
     flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
     textAlign: "center",
-    color: theme.palette.text.secondary
   },
-  container: {
-  }
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
 }));
 
 export default function BottomAppBar() {
   const classes = useStyles();
+  const preventDefault = (event) => event.preventDefault();
 
   return (
     <React.Fragment>
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar className={classes.customizeToolbar}>
           <footer>
+            <div className={classes.root}>
+              <Grid item xs={12}>
+                Made by Monstera Team ♡
+              </Grid>
+              <Grid container spacing={1}>
+                <Grid item xs={3}>
+                  <Grid container spacing={1}>
+                    <Grid item xs={12}>
+                      Shirin Shahram
+                    </Grid>
+                    {/* <Grid item xs={12}>
+                    <img src="https://ibb.co/ynHW3vj" alt='random view image' />
+                    </Grid> */}
+                    <Grid item xs={6}>
+                      <Link href="https://github.com/sshahram" >
+                        <GitHubIcon />
 
-            Made by Monstera Team ♡
+                      </Link>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Link href="https://www.linkedin.com/in/shirin-shahram/" >
+                        <LinkedInIcon />
+                      </Link>
+                    </Grid>
+                  </Grid>
+                  </Grid>
+                <Grid className='space' item xs={3}>
+                  <Grid className='space' container spacing={1}>
+                    <Grid item xs={12}>
+                      Zhypara Abdieva
+                    </Grid>
+                    {/* <Grid item xs={12}>
+                    <img src="https://ibb.co/ynHW3vj" alt='random view image' />
+                    </Grid> */}
+                    <Grid item xs={6}>
+                      <Link href="https://github.com/jypara-git" >
+                        <GitHubIcon />
+
+                      </Link>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Link href="https://www.linkedin.com/in/zhypara-abdieva-907746203/" >
+                        <LinkedInIcon />
+                      </Link>
+                    </Grid>
+                  </Grid>
+                  </Grid>
+                <Grid item xs={3}>
+                  <Grid container spacing={1}>
+                    <Grid item xs={12}>
+                      Kevin Lawrence
+                    </Grid>
+                    {/* <Grid item xs={12}>
+                    <img src="https://ibb.co/ynHW3vj" alt='random view image' />
+                    </Grid> */}
+                    <Grid item xs={6}>
+                      <Link href="https://github.com/kingkevin05" >
+                        <GitHubIcon />
+
+                      </Link>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Link href="https://www.linkedin.com/in/kevinlawrence05/" >
+                        <LinkedInIcon />
+                      </Link>
+                    </Grid>
+                  </Grid>
+                  </Grid>
+                <Grid item xs={3}>
+                  <Grid container spacing={1}>
+                    <Grid item xs={12}>
+                      Yevgeniya Terlyuk
+                    </Grid>
+                    {/* <Grid item xs={12}>
+                      <CardMedia
+                        className={classes.media}
+                        image="../../assets/Shirin.png"
+                        title="Paella dish"
+                      />
+                    </Grid> */}
+                    <Grid item xs={6}>
+                      <Link href="https://github.com/down-dive" >
+                        <GitHubIcon />
+                      </Link>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Link href="https://www.linkedin.com/in/yevgeniya-terluyk-034013179/" >
+                        <LinkedInIcon />
+
+                      </Link>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </div>
           </footer>
         </Toolbar>
       </AppBar>
