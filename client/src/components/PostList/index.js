@@ -12,6 +12,7 @@ import { PossibleTypeExtensionsRule } from "graphql";
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    
   },
   // bullet: {
   //   display: 'inline-block',
