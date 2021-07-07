@@ -42,32 +42,7 @@ export default function BottomAppBar() {
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar className={classes.customizeToolbar}>
           <footer>
-            <div className={classes.root}>
-              <Grid container spacing={3}>
-                <Grid item xs={3}>
-                <Grid container spacing={3}>
-        <Grid item xs={12}>
-   Shirin Shahram
-        </Grid>
-        <Grid item xs={12}>
-xs=6
-        </Grid>
-        <Grid item xs={12}>
-xs=6
-        </Grid>
-        <Grid item xs={12}>
-xs=3
-        </Grid>
-      </Grid>
-                </Grid>
-                <Grid item xs={3}>xs=6
-                </Grid>
-                <Grid item xs={3}>xs=6
-                </Grid>
-                <Grid item xs={3}>xs=3
-                </Grid>
-              </Grid>
-            </div>
+
             Made by Monstera Team ♡
           </footer>
         </Toolbar>
