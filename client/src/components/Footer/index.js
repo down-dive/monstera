@@ -10,6 +10,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import Image from 'material-ui-image'
 
+import './styles.css'
+
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -67,8 +69,8 @@ export default function BottomAppBar() {
                     </Grid>
                   </Grid>
                   </Grid>
-                <Grid item xs={3}>
-                  <Grid container spacing={1}>
+                <Grid className='space' item xs={3}>
+                  <Grid className='space' container spacing={1}>
                     <Grid item xs={12}>
                       Zhypara Abdieva
                     </Grid>
