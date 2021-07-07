@@ -9,13 +9,13 @@ import PostList from "../components/PostList";
 
 import FriendList from "../components/Friends-list";
 import NotificationList from "../components/NotificationList";
+import ResourceCard from "../components/ResourceCard";
+import resource from "../mainResources.json";
+import Resources from "../components/Resources";
 
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_POSTS, QUERY_ME_BASIC } from "../utils/queries";
-
-
-
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,10 +25,11 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
+    margin: 10,
   },
 }));
 
-const Homepage = (props) => {
+const Homepage = props => {
   const { loading, data } = useQuery(QUERY_POSTS);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
   const posts = data?.posts || [];
@@ -41,37 +42,36 @@ const Homepage = (props) => {
       <Grid
         container
         direction="row"
-        justify="flex-start"
+        justify="space-around"
         alignItems="flex-start"
         spacing={4}
       >
-        <Grid item xs={3}>
+        <Grid container justify="center" item xs={3}>
           <DangerButton />
 
           {/* <Paper className={classes.paper}>local resources/links</Paper> */}
 
           {loggedIn && userData ? (
-            <Paper className={classes.paper}>
+            <div container className={classes.paper}>
               <FriendList
                 username={userData.me.username}
                 friendCount={userData.me.friendCount}
                 friends={userData.me.friends}
               />
-            </Paper>
+            </div>
           ) : null}
         </Grid>
         {loggedIn && (
           <Grid item xs={5}>
             {" "}
-            <Paper className={classes.paper}>
+            <div className={classes.paper}>
               <PostForm />
-            </Paper>
-            { props.showNotifications && (
+            </div>
+            {props.showNotifications && (
               <Paper className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
                 <NotificationList notifications={props.notifications} />
               </Paper>
-            )
-            }
+            )}
             <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
               {loading ? (
                 <div>Loading...</div>
@@ -81,9 +81,8 @@ const Homepage = (props) => {
             </div>
           </Grid>
         )}
-
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>local resources/links</Paper>
+        <Grid item xs={4} className="card mb-3">
+          <Resources />
         </Grid>
       </Grid>
     </main>

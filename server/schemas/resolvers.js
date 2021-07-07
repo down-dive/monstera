@@ -230,8 +230,20 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
-        }
+        },
+        clearNotifications: async (parent, _args, context) => {
+            if (context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    context.user._id,
+                    { $set: { notifications: []}},
+                    { new: true }
+                ).populate('notifications');
 
+                return updatedUser;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
+        }
     }
 };
 

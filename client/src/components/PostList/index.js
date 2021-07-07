@@ -7,10 +7,13 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ReplyForm from "../ReplyForm";
+import { PossibleTypeExtensionsRule } from "graphql";
+import ReplyList from "../ReplyList"
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    
   },
   // bullet: {
   //   display: 'inline-block',
@@ -31,19 +34,21 @@ const PostList = ({ posts }) => {
     return <h3>No Posts Yet</h3>;
   }
 
+  console.log(posts)
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       {posts &&
         posts.slice(0, 5).map(post => (
           <CardContent key={post._id} className="card mb-3">
             <Typography
               className={classes.title}
-              color="textSecondary"
+              style={{ color: "grey" }}
               gutterBottom
             >
               <Link
                 to={`/profile/${post.username}`}
-                style={{ fontWeight: 700 }}
+                style={{ fontWeight: 700, fontSize: 26, color: "white" }}
                 className="text-light"
               >
                 {post.username}
@@ -51,11 +56,12 @@ const PostList = ({ posts }) => {
               post on {post.createdAt}
             </Typography>
             <Typography className="card-body">
-              <Typography>{post.postContent}</Typography>
+              <span className="text-light">{post.postContent}</span>
             </Typography>
             <CardActions>
-              <ReplyForm />
+              <ReplyForm  post_id={post._id}/>
             </CardActions>
+            <ReplyList />
             <Typography>Replies: {post.replyCount}</Typography>
           </CardContent>
         ))}
