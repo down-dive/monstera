@@ -2,16 +2,17 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import './styles.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
   },
+  // text: {
+  //   // padding: theme.spacing(1),
+  //   textAlign: 'center',
+  // },
 }));
 
 const UserInfo = () => {
@@ -19,18 +20,18 @@ const UserInfo = () => {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid className='option' container spacing={3}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>...user info</Paper>
+          You are awesome and you know it!!!
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>...user info</Paper>
+          ...user info
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>... user info</Paper>
+          ... user info
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>...user info</Paper>
+          ...user info
         </Grid>
       </Grid>
     </div>

@@ -51,18 +51,16 @@ export default function BottomAppBar() {
                     <Grid item xs={12}>
                       Shirin Shahram
                     </Grid>
-                    <Grid item xs={12}>
-                      <Image
-                        src="../../assets/Shirin.png"
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
+                    <img src="https://ibb.co/ynHW3vj" alt='random view image' />
+                    </Grid> */}
+                    <Grid item xs={6}>
                       <Link href="https://github.com/sshahram" >
                         <GitHubIcon />
 
                       </Link>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={6}>
                       <Link href="https://www.linkedin.com/in/shirin-shahram/" >
                         <LinkedInIcon />
 
@@ -71,46 +69,61 @@ export default function BottomAppBar() {
                   </Grid>
                 </Grid>
                 <Grid item xs={3}>
-                  <Grid container spacing={1}>
+                <Grid container spacing={1}>
                     <Grid item xs={12}>
-                      Zhypara Abdieva
+                      Shirin Shahram
                     </Grid>
-                    <Grid item xs={12}>
-                    <Image
-  src="http://loremflickr.com/300/200"
-/>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Link href="https://github.com/jypara-git" >
+                    {/* <Grid item xs={12}>
+                    <img src="https://ibb.co/ynHW3vj" alt='random view image' />
+                    </Grid> */}
+                    <Grid item xs={6}>
+                      <Link href="https://github.com/sshahram" >
                         <GitHubIcon />
 
                       </Link>
                     </Grid>
-                    <Grid item xs={12}>
-                      <Link href="http://linkedin.com/in/zhypara-abdieva-907746203" >
+                    <Grid item xs={6}>
+                      <Link href="https://www.linkedin.com/in/shirin-shahram/" >
                         <LinkedInIcon />
 
                       </Link>
                     </Grid>
                   </Grid>
+                  {/* <Grid container spacing={1}>
+                    <Grid item xs={12}>
+                      Zhypara Abdieva
+                    </Grid>
+                    {/* <Grid item xs={12}>
+                    </Grid> */}
+                    {/* <Grid item xs={12}>
+                      <Link href="https://github.com/jypara-git" >
+                        <GitHubIcon />
+                      </Link>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Link href="http://linkedin.com/in/zhypara-abdieva-907746203" >
+                        <LinkedInIcon />
+                      </Link>
+                    </Grid>
+                  </Grid> */} 
                 </Grid>
                 <Grid item xs={3}>
                   <Grid container spacing={1}>
                     <Grid item xs={12}>
                       Kevin Lawrence
                     </Grid>
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
 <Image
   src="https://ibb.co/ynHW3vj"
 />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Link href="https://github.com/kingkevin05" >
+                    </Grid> */}
+                    <Grid item xs={6}>
+                      <Link href="https://github.com/sshahram" >
                         <GitHubIcon />
 
                       </Link>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={6}>
                       <Link href="https://www.linkedin.com/in/kevinlawrence05/" >
                         <LinkedInIcon />
 
@@ -123,20 +136,19 @@ export default function BottomAppBar() {
                     <Grid item xs={12}>
                       Yevgeniya Terlyuk
                     </Grid>
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                       <CardMedia
                         className={classes.media}
                         image="../../assets/Shirin.png"
                         title="Paella dish"
                       />
-                    </Grid>
-                    <Grid item xs={12}>
+                    </Grid> */}
+                    <Grid item xs={6}>
                       <Link href="https://github.com/sshahram" >
                         <GitHubIcon />
-
                       </Link>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={6}>
                       <Link href="https://www.linkedin.com/in/shirin-shahram/" >
                         <LinkedInIcon />
 
