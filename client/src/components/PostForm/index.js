@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import Paper from "@material-ui/core/Paper";
-// import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_POST } from "../../utils/mutations";
@@ -8,7 +8,49 @@ import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 
 // import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import {
+  withStyles,
+  makeStyles,
+} from '@material-ui/core/styles';
 
+const CssTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: 'green',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'green',
+    },
+    '& .MuiInputLabel-root': {
+      color: 'grey'
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'yellow',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'green',
+      },
+      '& .MuiInputBase-input': {
+        color: 'var(--light)'
+      },
+    },
+  },
+})(TextField);
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  margin: {
+    margin: theme.spacing(1),
+  },
+}));
 
 const PostForm = () => {
   const [postContent, setContent] = useState("");
@@ -62,22 +104,24 @@ const PostForm = () => {
     }
   };
 
-  
+  const classes = useStyles();
 
   return (
     <div>
       <form
-        className= "flex-row justify-center justify-space-between-md align-stretch"
+        className={classes.root} noValidate
         onSubmit={handleFormSubmit}
+        
       >
-        <TextField
+        <CssTextField
           id="outlined-multiline-flexible"
           label="How's it Going?"
           value={postContent}
           multiline
-          fullWidth         
+          fullWidth
           rows={4}
           variant="outlined"
+          className="form-input col-12 col-md-9"
           onChange={handleChange}
         />
         <p
@@ -88,9 +132,15 @@ const PostForm = () => {
           {/* Character Count: {characterCount}/1000 */}
           {error && <span className="ml-2">Something went wrong...</span>}
         </p>
-        <button className="btn col-12 col-md-3" type="submit">
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ margin: 10 }}
+          className="col-6 col-md-3"
+          type="submit"
+        >
           send
-        </button>
+        </Button>
       </form>
     </div>
   );
