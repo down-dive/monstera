@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_POST } from "../../utils/mutations";
 import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
+import { green } from '@material-ui/core/colors';
 
 // import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -40,6 +41,16 @@ const CssTextField = withStyles({
     },
   },
 })(TextField);
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(green[500]),
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },
+  },
+}))(Button);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -132,15 +143,15 @@ const PostForm = () => {
           {/* Character Count: {characterCount}/1000 */}
           {error && <span className="ml-2">Something went wrong...</span>}
         </p>
-        <Button
+        <ColorButton
           variant="contained"
-          color="primary"
+          color="green"
           style={{ margin: 10 }}
           className="col-6 col-md-3"
           type="submit"
         >
           send
-        </Button>
+        </ColorButton>
       </form>
     </div>
   );
