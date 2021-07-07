@@ -45,8 +45,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ReplyForm = ({ postId }) => {
-  const [replyContent, setContent] = useState("");
+
+const ReplyForm = (props) => {
+   let postId = props.post_id
+  const [replyContent, setContent] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
   const [addReply, { error }] = useMutation(ADD_REPLIES);
 
@@ -57,15 +59,16 @@ const ReplyForm = ({ postId }) => {
       setCharacterCount(event.target.value.length);
     }
   };
-
+  
   // submit form
   const handleFormSubmit = async event => {
+    console.log(props)
     event.preventDefault();
 
     try {
       await addReply({
-        variables: { replyContent, postId },
-      });
+        variables: { replyContent, postId}
+      }).then(data => (console.log(data)))
 
       // clear form value
       setContent("");

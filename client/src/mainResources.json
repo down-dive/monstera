@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "211bayarea",
+        "description": "2-1-1 Bay Area, a program of United Way, is the comprehensive information and referral service for San Francisco, San Mateo, Napa, Marin, Santa Clara, and Solano counties.2-1-1 phone and text services are available 24 hours a day, 7 days a week.",
+        "url": "https://www.211bayarea.org/sanfrancisco/housing/shelters/domestic-violence-shelters/",
+        "image": "./img/211BayArea.jpg"
+    },
+    {
+        "id": 2,
+        "name": "NCADV",
+        "description": "Resource for victims and survivors of domestic violence. This includes a list of national crisis organizations and assistance. They also offer resources for those working with victims and survivors of domestic violence.",
+        "url": "https://ncadv.org/resources",
+        "image": "./img/NCADV.jpg"
+    }
+]

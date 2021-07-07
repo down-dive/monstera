@@ -284,7 +284,7 @@ export default function PersistentDrawerLeft(props) {
           <ListItemLink href="/friends">
             <ListItemText primary="Friends" />
           </ListItemLink>
-          <ListItemLink href="/friends">
+          <ListItemLink href="/resources">
             <ListItemText primary="Resources" />
           </ListItemLink>
         </List>
