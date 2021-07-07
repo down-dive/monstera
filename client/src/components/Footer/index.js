@@ -10,6 +10,10 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import Image from 'material-ui-image'
 
+import PropTypes from 'prop-types';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Slide from '@material-ui/core/Slide';
+
 import './styles.css'
 
 
@@ -32,15 +36,42 @@ const useStyles = makeStyles((theme) => ({
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
+  customizeToolbar: {
+    minHeight: 10
+}
 }));
 
-export default function BottomAppBar() {
+function HideOnScroll(props) {
+  const { children, window } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({ target: window ? window() : undefined });
+
+  return (
+    <Slide appear={false} direction="up" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+HideOnScroll.propTypes = {
+  children: PropTypes.element.isRequired,
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
+
+export default function BottomAppBar(props) {
   const classes = useStyles();
   const preventDefault = (event) => event.preventDefault();
 
   return (
     <React.Fragment>
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
+       <HideOnScroll {...props}>
+      <AppBar position="fixed" style={{ background: '#04752f' }} className={classes.appBar}>
         <Toolbar className={classes.customizeToolbar}>
           <footer>
             <div className={classes.root}>
@@ -56,15 +87,13 @@ export default function BottomAppBar() {
                     {/* <Grid item xs={12}>
                     <img src="https://ibb.co/ynHW3vj" alt='random view image' />
                     </Grid> */}
-                    <Grid item xs={6}>
+                    <Grid item xs={12}>
                       <Link href="https://github.com/sshahram" >
-                        <GitHubIcon />
+                        <GitHubIcon className='GitHubIcon' />
 
                       </Link>
-                    </Grid>
-                    <Grid item xs={6}>
                       <Link href="https://www.linkedin.com/in/shirin-shahram/" >
-                        <LinkedInIcon />
+                      <LinkedInIcon className="LinkedInIcon" />
                       </Link>
                     </Grid>
                   </Grid>
@@ -77,15 +106,13 @@ export default function BottomAppBar() {
                     {/* <Grid item xs={12}>
                     <img src="https://ibb.co/ynHW3vj" alt='random view image' />
                     </Grid> */}
-                    <Grid item xs={6}>
+                    <Grid item xs={12}>
                       <Link href="https://github.com/jypara-git" >
-                        <GitHubIcon />
+                      <GitHubIcon className='GitHubIcon' />
 
                       </Link>
-                    </Grid>
-                    <Grid item xs={6}>
                       <Link href="https://www.linkedin.com/in/zhypara-abdieva-907746203/" >
-                        <LinkedInIcon />
+                      <LinkedInIcon className="LinkedInIcon" />
                       </Link>
                     </Grid>
                   </Grid>
@@ -98,15 +125,13 @@ export default function BottomAppBar() {
                     {/* <Grid item xs={12}>
                     <img src="https://ibb.co/ynHW3vj" alt='random view image' />
                     </Grid> */}
-                    <Grid item xs={6}>
+                    <Grid item xs={12}>
                       <Link href="https://github.com/kingkevin05" >
-                        <GitHubIcon />
+                      <GitHubIcon className='GitHubIcon' />
 
                       </Link>
-                    </Grid>
-                    <Grid item xs={6}>
                       <Link href="https://www.linkedin.com/in/kevinlawrence05/" >
-                        <LinkedInIcon />
+                        <LinkedInIcon className="LinkedInIcon" />
                       </Link>
                     </Grid>
                   </Grid>
@@ -123,14 +148,12 @@ export default function BottomAppBar() {
                         title="Paella dish"
                       />
                     </Grid> */}
-                    <Grid item xs={6}>
+                    <Grid item xs={12}>
                       <Link href="https://github.com/down-dive" >
-                        <GitHubIcon />
+                      <GitHubIcon className='GitHubIcon' />
                       </Link>
-                    </Grid>
-                    <Grid item xs={6}>
                       <Link href="https://www.linkedin.com/in/yevgeniya-terluyk-034013179/" >
-                        <LinkedInIcon />
+                      <LinkedInIcon className="LinkedInIcon" />
 
                       </Link>
                     </Grid>
@@ -141,6 +164,7 @@ export default function BottomAppBar() {
           </footer>
         </Toolbar>
       </AppBar>
+      </HideOnScroll>
     </React.Fragment>
   );
 }
