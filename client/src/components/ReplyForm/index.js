@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { green } from '@material-ui/core/colors';
 
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_REPLIES } from "../../utils/mutations";
@@ -45,6 +46,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(green[500]),
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },
+  },
+}))(Button);
 
 const ReplyForm = (props) => {
    let postId = props.post_id
@@ -101,15 +111,15 @@ const ReplyForm = (props) => {
           onChange={handleChange}
         ></CssTextField>
 
-        <Button
+        <ColorButton
           variant="contained"
-          color="primary"
+          color="green"
           style={{ margin: 10 }}
           className="col-12 col-md-3"
           type="submit"
         >
           comment
-        </Button>
+        </ColorButton>
       </form>
 
       {error && <div>Something went wrong...</div>}
