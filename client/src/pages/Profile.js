@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Redirect, useParams } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
+import React, { useEffect, useState } from 'react';
+import { Redirect, useParams } from 'react-router-dom';
 
+import PostForm from '../components/PostForm';
+import PostList from '../components/PostList';
+import FriendList from '../components/Friends-list';
 import UserProfile from '../components/User-profile';
-import ProfileImage from '../components/ProfileImage';
-import PostForm from "../components/PostForm";
-import PostList from "../components/PostList";
-import FriendList from "../components/Friends-list";
-import Button from "@material-ui/core/Button";
 
-import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
-import { ADD_FRIEND, REMOVE_FRIEND } from "../utils/mutations";
-import Auth from "../utils/auth";
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const Profile = props => {
   const { username: userParam } = useParams();
@@ -22,7 +19,7 @@ const Profile = props => {
   const [isFriend, setFriend] = useState(false);
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
+    variables: { username: userParam }
   });
 
   const user = data?.me || data?.user || {};
@@ -52,8 +49,7 @@ const Profile = props => {
   if (!user?.username) {
     return (
       <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
+        You need to be logged in to see this. Use the navigation links above to sign up or log in!
       </h4>
     );
   }
@@ -61,7 +57,7 @@ const Profile = props => {
   const handleClick = async () => {
     try {
       await addFriend({
-        variables: { id: user._id },
+        variables: { id: user._id }
       });
       // setFriend(true);
     } catch (e) {
@@ -72,7 +68,7 @@ const Profile = props => {
   const handleRemoveClick = async () => {
     try {
       await removeFriend({
-        variables: { id: user._id },
+        variables: { id: user._id }
       });
       // setFriend(false);
     } catch (e) {
@@ -83,36 +79,23 @@ const Profile = props => {
   return (
     <div>
       <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-2 display-inline-block">
-          Viewing {userParam ? `${user.username}'s` : "your"} profile.
+        <h2 className="bg-dark text-secondary p-3 display-inline-block">
+          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
         <UserProfile />
 
         {userParam && (
           <div>
-            <Button
-              variant="contained"
-              color="primary"
-              style={{ margin: 10 }}
-              className="col-12 col-md-3"
-              type="submit"
-              onClick={handleClick}
-            >
+            <button className="btn ml-auto" onClick={handleClick}>
               Add Friend
-            </Button>
-
-            <Button
-              variant="contained"
-              color="primary"
-              style={{ margin: 10 }}
-              className="col-12 col-md-3"
-              type="submit"
-              onClick={handleRemoveClick}
-            >
+            </button>
+            <button className="btn ml-auto" onClick={handleRemoveClick}>
               Remove Friend
-            </Button>
+            </button>
           </div>
-        )}
+        )
+
+        }
 
         {/* {userParam && (!isFriend ? (
           <button className="btn ml-auto" onClick={handleClick}>
@@ -123,31 +106,21 @@ const Profile = props => {
             Remove Friend
           </button>))} */}
       </div>
-      <Grid
-        container
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        spacing={4}
-      >
-        <Grid item xs={3}>
+
+      <div className="flex-row justify-space-between mb-3">
+        <div className="col-12 mb-3 col-lg-8">
+          <PostList posts={user.posts} title={`${user.username}'s posts...`} />
+        </div>
+
+        <div className="col-12 col-lg-3 mb-3">
           <FriendList
             username={user.username}
             friendCount={user.friendCount}
             friends={user.friends}
           />
-        </Grid>
-        <Grid item xs={6}>
-          {!userParam && <PostForm />}
-
-          <div className="col-6 mb-3 col-lg-8">
-            <PostList
-              posts={user.posts}
-              title={`${user.username}'s posts...`}
-            />
-          </div>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
+      <div className="mb-3">{!userParam && <PostForm />}</div>
     </div>
   );
 };
