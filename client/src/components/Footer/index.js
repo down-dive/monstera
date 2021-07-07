@@ -40,7 +40,7 @@ export default function BottomAppBar() {
 
   return (
     <React.Fragment>
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
+      <AppBar position="fixed" style={{ background: '#04752f' }} className={classes.appBar}>
         <Toolbar className={classes.customizeToolbar}>
           <footer>
             <div className={classes.root}>
