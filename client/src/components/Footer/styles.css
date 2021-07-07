@@ -2,3 +2,12 @@
     justify-content: space-between;
     /* color: red */
 }
+
+.GitHubIcon {
+    margin-right: 1.2rem;
+    color: #edf5f0;
+}
+
+.LinkedInIcon {
+    color: #edf5f0;
+}
