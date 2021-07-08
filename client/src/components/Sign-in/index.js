@@ -17,6 +17,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -35,6 +36,18 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
   },
 }));
 
@@ -65,7 +78,9 @@ const Login = props => {
 
       Auth.login(data.login.token);
     } catch (e) {
+      console.log("Password is not correct")
       console.error(e);
+      return 
     }
 
     // clear form values
@@ -79,27 +94,22 @@ const Login = props => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
         <form onSubmit={handleFormSubmit}
-        className={classes.form} 
-        noValidate
+          className={classes.form}
+          noValidate
         >
           <TextField
+            name="username"
             variant="outlined"
-            margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="username"
+            label="Username"
             autoFocus
-            value={formState.email}
+            value={formState.username}
             onChange={handleChange}
           />
           <TextField
@@ -115,10 +125,6 @@ const Login = props => {
             value={formState.password}
             onChange={handleChange}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
@@ -128,16 +134,9 @@ const Login = props => {
           >
             Sign In
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
 
-        {error && <div>Login failed</div>}
+        {error && <div><Alert severity="error">Username or password is not correct</Alert></div>}
       </div>
       <Box mt={8}>
       </Box>

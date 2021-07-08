@@ -1,40 +1,59 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import React from "react";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import { Grid } from "@material-ui/core";
+import { green } from '@material-ui/core/colors';
+import { withStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+
+const ColorButton = withStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    color: theme.palette.getContrastText(green[500]),
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
+}))(Button);
 
-const FriendsList = () => {
-  const classes = useStyles();
+const FriendList = ({ friendCount, username, friends }) => {
+  if (!friends || !friends.length) {
+    return (
+      <p className="bg-dark text-light p-3">{username}, make some friends!</p>
+    );
+  }
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>...user friend</Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>...user friend</Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>... user friend</Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>...user friend</Paper>
-        </Grid>
-      </Grid>
-    </div>
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      style={{ padding: 13 }}
+      className="card mb-3"
+    >
+      <h5>
+        {username}'s {friendCount} {friendCount === 1 ? "friend" : "friends"}
+      </h5>
+      {friends.map(friend => (
+        <ColorButton
+          variant="contained"
+          color="primary"
+          style={{ margin: 10 }}
+          className="col-12 col-md-3"
+          key={friend._id}
+          type="submit"
+        >
+          <Link
+            style={{ textDecoration: "none", color: "white" }}
+            to={`/profile/${friend.username}`}
+          >
+            {friend.username}
+          </Link>
+        </ColorButton>
+      ))}
+    </Grid>
   );
-}
+};
 
-export default FriendsList;
+export default FriendList;

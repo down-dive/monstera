@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($postContent: String!) {
-    addPost(postContent: $postContent) {
+  mutation addPost($postContent: String!, $sos: Boolean, $lat: String, $long: String) {
+    addPost(postContent: $postContent, sos: $sos, lat: $lat, long: $long) {
       _id
       postContent
       createdAt
@@ -69,8 +69,8 @@ export const ADD_FRIEND = gql`
 `;
 
 export const REMOVE_FRIEND = gql`
-  mutation deleteFriend($friendId: ID!) {
-    deleteFriend(friendId: $friendId) {
+  mutation deleteFriend($id: ID!) {
+    deleteFriend(friendId: $id) {
       _id
       username
       email
@@ -111,3 +111,13 @@ export const REMOVE_POST = gql`
   }
 }
 `;
+
+export const CLEAR_NOTIFICATIONS = gql`
+  mutation clearNotifications {
+    clearNotifications {
+      _id
+      username
+      friendCount
+    }
+  }
+`

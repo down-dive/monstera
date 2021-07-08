@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
+// import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
@@ -15,15 +15,18 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SearchIcon from "@material-ui/icons/Search";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import InputBase from "@material-ui/core/InputBase";
-import Badge from "@material-ui/core/Badge";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@material-ui/core/TextField";
+import NotificationBell from "../NotificationBell";
 import DangerButton from "../../components/DangerButton";
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_ALL_USERS } from "../../utils/queries";
 
-import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
-import Auth from '../../utils/auth';
+import { Link } from "react-router-dom";
 
+import Auth from "../../utils/auth";
 
 const drawerWidth = 240;
 
@@ -33,6 +36,7 @@ const useStyles = makeStyles(theme => ({
     "& > svg": {
       margin: theme.spacing(2),
     },
+    
   },
   grow: {
     flexGrow: 1,
@@ -47,6 +51,7 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
+      backgroundColor: "white"
     }),
   },
   search: {
@@ -143,21 +148,16 @@ const useStyles = makeStyles(theme => ({
       display: "none",
     },
   },
+  customizeToolbar: {
+    minHeight: 10,
+  },
 }));
-
-// function HomeIcon(props) {
-//   return (
-//     <SvgIcon {...props}>
-//       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-//     </SvgIcon>
-//   );
-// }
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft(props) {
   const logout = event => {
     event.preventDefault();
     Auth.logout();
@@ -174,16 +174,25 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  // handle searching username
+  const { loading, error, data } = useQuery(QUERY_ALL_USERS);
+
+  let history = useHistory(data?.username);
+  const handleInputChange = async(e, value) => {
+  
+    history.push(`/profile/${value}`);
+  }
+
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar
+      style={{ background: '#04752f' }}
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar className={classes.customizeToolbar}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -194,30 +203,35 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            MONSTREA
+            MONSTERA
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
+            <Autocomplete
+              id="search-bar"
+              options={data ? data?.users.map((user) => user.username) : []}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  placeholder="Search..."
+                  classes={{
+                    root: classes.inputInput
+                  }}
+                />
+              )}
+              onInputChange={handleInputChange}
             />
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 1 new notifications" color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <NotificationBell
+              setShowNotifications={props.setShowNotifications}
+              setNotifications={props.setNotifications}
+            />
           </div>
-          <nav className="text-center">
+
           {Auth.loggedIn() ? (
             <>
               <a href="/" onClick={logout}>
@@ -229,7 +243,6 @@ export default function PersistentDrawerLeft() {
               <Link to="/signin">Login</Link>
             </>
           )}
-        </nav>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -251,9 +264,9 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </div>
         <Divider />
-        <List>
+        <List >
           <ListItem button>
-          <DangerButton />
+            <DangerButton />
           </ListItem>
           <ListItemLink href="/">
             <ListItemText primary="Home" />
@@ -264,7 +277,7 @@ export default function PersistentDrawerLeft() {
           <ListItemLink href="/friends">
             <ListItemText primary="Friends" />
           </ListItemLink>
-          <ListItemLink href="/friends">
+          <ListItemLink href="/resources">
             <ListItemText primary="Resources" />
           </ListItemLink>
         </List>

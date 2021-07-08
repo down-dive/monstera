@@ -15,6 +15,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Alert from '@material-ui/lab/Alert';
+import './styles.css'
 
 
 
@@ -24,10 +26,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -72,9 +70,6 @@ export default function SignUp() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
@@ -82,10 +77,10 @@ export default function SignUp() {
         className={classes.form} 
         noValidate
         >
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
+          <Grid className='color' container spacing={2}>
+            <Grid className='color'item xs={12}>
               <TextField
-                autoComplete="username"
+              className='color'
                 name="username"
                 variant="outlined"
                 required
@@ -134,16 +129,9 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
         </form>
 
-        {error && <div>Signup failed</div>}
+        {error && <div><Alert severity="error">You need to provide a valid email and password should be at least 6 characters long</Alert></div>}
       </div>
       <Box mt={5}>
       </Box>

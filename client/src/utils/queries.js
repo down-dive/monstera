@@ -53,6 +53,13 @@ export const QUERY_USER = gql`
         createdAt
         replyCount
       }
+      notifications {
+        _id
+        noteContent
+        createdBy
+        createdAt
+        postId
+      }
     }
   }
 `;
@@ -80,6 +87,15 @@ export const QUERY_ME = gql`
         _id
         username
       }
+      notifications {
+        _id
+        noteContent
+        createdBy
+        createdAt
+        postId
+        lat
+        long
+      }
     }
   }
 `;
@@ -87,6 +103,21 @@ export const QUERY_ME = gql`
 export const QUERY_ME_BASIC = gql`
   {
     me {
+      _id
+      username
+      email
+      friendCount
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+export const QUERY_ALL_USERS = gql`
+  {
+    users {
       _id
       username
       email
