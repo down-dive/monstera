@@ -26,7 +26,7 @@ body {
 body {
   margin: 50pt;
   padding: 0;
-  font-family: 'Inconsolata', monospace;
+  font-family: Arial, 'Helvetica', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
@@ -74,6 +74,7 @@ h6 {
 p {
   font-size: 1.1rem;
   margin-top: 0;
+  
 }
 
 a {
@@ -108,6 +109,9 @@ nav a:hover {
   font-size: 2.5rem;
 }
 
+.post-text {
+  font-size: 1.7rem;
+}
 
 .btn {
   font-size: 1.3rem;
