@@ -13,7 +13,9 @@
     "material-ui-image": "^3.3.2",
     "react-router-dom": "^5.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
