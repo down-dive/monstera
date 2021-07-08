@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import UserProfile from "../components/User-profile";
 import PostForm from "../components/PostForm";
-import PostList from "../components/PostList";
 import FriendList from "../components/Friends-list";
-import Button from "@material-ui/core/Button";
 import Grid from '@material-ui/core/Grid';
 
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
-import Auth from '../utils/auth';
 
 const Profile = props => {
   const { username: userParam } = useParams();
 
   const [addFriend] = useMutation(ADD_FRIEND);
   const [removeFriend] = useMutation(REMOVE_FRIEND);
-  const [isFriend, setFriend] = useState(false);
+  // const [isFriend, setFriend] = useState(false);
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
