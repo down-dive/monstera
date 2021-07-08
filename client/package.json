@@ -1,5 +1,5 @@
 {
-  "name": "domestic-violence-prevention-social-app",
+  "name": "mern-client",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
@@ -21,7 +21,11 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-window": "^1.8.6",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "avatar": "^0.1.0",
+    "faker": "^5.5.3",
+    "material-ui": "^0.20.2",
+    "material-ui-image": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
