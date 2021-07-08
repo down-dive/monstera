@@ -1,15 +1,16 @@
-import React from 'react';
-import Image from 'material-ui-image'
-import Avatar from '@material-ui/core/Avatar';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import Image from "material-ui-image";
+import Avatar from "@material-ui/core/Avatar";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    '& > *': {
-      margin: theme.spacing(1),
+    display: "flex",
+    "& > *": {
+      // margin: theme.spacing(1),
     },
+    justify:"center",
   },
   small: {
     width: theme.spacing(3),
@@ -21,14 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function random_item(items)
-{
-  
-return items[Math.floor(Math.random()*items.length)];
-     
+function random_item(items) {
+  return items[Math.floor(Math.random() * items.length)];
 }
 
-var items = [1037, 1039, 1043, 1057, 11, 12]
+var items = [1037, 1039, 1043, 1057, 11, 12];
 
 console.log(random_item(items));
 
@@ -36,8 +34,10 @@ const UserImage = () => {
   const classes = useStyles();
 
   return (
-    <img src="https://picsum.photos/id/237/200/300" alt='random view image' />
+    <Grid item className="card">
+    <img className={classes.root} src="https://picsum.photos/200/300" alt="random view image" />
+  </Grid>
   );
-}
+};
 
 export default UserImage;
