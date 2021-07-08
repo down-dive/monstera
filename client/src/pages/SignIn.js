@@ -5,43 +5,60 @@ import Grid from "@material-ui/core/Grid";
 import SignIn from "../components/Sign-in";
 import SignUp from "../components/Sign-up";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-}));
+const useStyles = makeStyles((theme) => ({
+    text: {
+      padding: theme.spacing(2, 2, 0),
+    },
+    list: {
+      marginBottom: theme.spacing(2),
+    },
+    appBar: {
+      top: 'auto',
+      bottom: 0,
+    },
+    root: {
+      flexGrow: 1,
+      textAlign: "center",
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+    },
+    customizeToolbar: {
+      minHeight: 10
+  }
+  }));
 
 const SignInSignUp = () => {
-  const classes = useStyles();
-  return (
-    <div>
-      <Grid
-        // container
-        direction="row"
-        justify="space-around"
-        // alignItems="center"
-        spacing={4}
-        style={{ margin: "10rem" }}
-        
-      >
-        <Grid item xs={6}>
-          <div className="card">
-            <SignIn />
-          </div>
+    const classes = useStyles();
+    return (
+        <div className={classes.root}>
+        <Grid container spacing={1}>
+          <Grid item xs={3}>
+            <Grid container spacing={1}>
+              <Grid item xs={12}>
+                Shirin Shahram
+              </Grid>
+              {/* <Grid item xs={12}>
+              <img src="https://ibb.co/ynHW3vj" alt='random view image' />
+              </Grid> */}
+              <Grid item xs={12}>
+<SignIn />
+              </Grid>
+            </Grid>
+            </Grid>
+          <Grid className='space' item xs={3}>
+            <Grid className='space' container spacing={1}>
+              <Grid item xs={12}>
+<SignUp />
+              </Grid>
+            </Grid>
+            </Grid>
+          <Grid item xs={3}>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <div className="card">
-            <SignUp />
-          </div>
-        </Grid>
-      </Grid>
-    </div>
-  );
-};
+      </div>
+    )
+}
 
 export default SignInSignUp;

@@ -75,9 +75,6 @@ export default function BottomAppBar(props) {
         <Toolbar className={classes.customizeToolbar}>
           <footer>
             <div className={classes.root}>
-              <Grid item xs={12}>
-                Made by Monstera Team ♡
-              </Grid>
               <Grid container spacing={1}>
                 <Grid item xs={3}>
                   <Grid container spacing={1}>
@@ -85,7 +82,7 @@ export default function BottomAppBar(props) {
                       Shirin Shahram
                     </Grid>
                     {/* <Grid item xs={12}>
-                    <img src="https://ibb.co/ynHW3vj" alt='random view image' />
+                    <img src="../../assets/Shirin.png" alt='random view image' />
                     </Grid> */}
                     <Grid item xs={12}>
                       <Link href="https://github.com/sshahram" >
