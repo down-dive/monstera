@@ -11,10 +11,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     textAlign: 'center',
   },
-  // text: {
-  //   // padding: theme.spacing(1),
-  //   textAlign: 'center',
-  // },
 }));
 
 const UserInfo = () => {
