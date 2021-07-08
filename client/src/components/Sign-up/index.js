@@ -13,10 +13,53 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  withStyles,
+  makeStyles,
+} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Alert from '@material-ui/lab/Alert';
 import './styles.css'
+import { green } from '@material-ui/core/colors';
+
+
+const CssTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: 'green',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'green',
+    },
+    '& .MuiInputLabel-root': {
+      color: 'grey'
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'yellow',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'green',
+      },
+      '& .MuiInputBase-input': {
+        color: 'var(--light)'
+      },
+    },
+  },
+})(TextField);
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(green[500]),
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },
+  },
+}))(Button);
 
 
 
@@ -67,6 +110,7 @@ export default function SignUp() {
   };
 
   return (
+    <div className="card">
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -79,7 +123,7 @@ export default function SignUp() {
         >
           <Grid className='color' container spacing={2}>
             <Grid className='color'item xs={12}>
-              <TextField
+              <CssTextField
               className='color'
                 name="username"
                 variant="outlined"
@@ -93,7 +137,7 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+              <CssTextField
                 variant="outlined"
                 required
                 fullWidth
@@ -106,7 +150,7 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+              <CssTextField
                 variant="outlined"
                 required
                 fullWidth
@@ -120,7 +164,7 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          <Button
+          <ColorButton
             type="submit"
             fullWidth
             variant="contained"
@@ -128,7 +172,7 @@ export default function SignUp() {
             className={classes.submit}
           >
             Sign Up
-          </Button>
+          </ColorButton>
         </form>
 
         {error && <div><Alert severity="error">You need to provide a valid email and password should be at least 6 characters long</Alert></div>}
@@ -136,5 +180,6 @@ export default function SignUp() {
       <Box mt={5}>
       </Box>
     </Container>
+  </div>
   );
 }

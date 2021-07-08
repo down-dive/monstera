@@ -15,9 +15,51 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  withStyles,
+  makeStyles,
+} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Alert from '@material-ui/lab/Alert';
+import { green } from '@material-ui/core/colors';
+
+const CssTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: 'green',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'green',
+    },
+    '& .MuiInputLabel-root': {
+      color: 'grey'
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'yellow',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'green',
+      },
+      '& .MuiInputBase-input': {
+        color: 'var(--light)'
+      },
+    },
+  },
+})(TextField);
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(green[500]),
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },
+  },
+}))(Button);
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -91,6 +133,7 @@ const Login = props => {
   };
 
   return (
+    <div className="card" style={{padding: "1.7rem"}}>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -101,7 +144,7 @@ const Login = props => {
           className={classes.form}
           noValidate
         >
-          <TextField
+          <CssTextField
             name="username"
             variant="outlined"
             required
@@ -111,8 +154,9 @@ const Login = props => {
             autoFocus
             value={formState.username}
             onChange={handleChange}
+            
           />
-          <TextField
+          <CssTextField
             variant="outlined"
             margin="normal"
             required
@@ -125,7 +169,7 @@ const Login = props => {
             value={formState.password}
             onChange={handleChange}
           />
-          <Button
+          <ColorButton
             type="submit"
             fullWidth
             variant="contained"
@@ -133,7 +177,7 @@ const Login = props => {
             className={classes.submit}
           >
             Sign In
-          </Button>
+          </ColorButton>
         </form>
 
         {error && <div><Alert severity="error">Username or password is not correct</Alert></div>}
@@ -141,6 +185,7 @@ const Login = props => {
       <Box mt={8}>
       </Box>
     </Container>
+  </div>
   );
 }
 
