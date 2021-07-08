@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 
-import UserProfile from '../components/User-profile';
-import ProfileImage from '../components/ProfileImage';
+import UserProfile from "../components/User-profile";
+import ProfileImage from "../components/ProfileImage";
 import PostForm from "../components/PostForm";
 import PostList from "../components/PostList";
 import FriendList from "../components/Friends-list";
@@ -82,11 +82,10 @@ const Profile = props => {
 
   return (
     <div>
-      <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-2 display-inline-block">
+      <Grid container item xs={12}>
+        <h2 className="bg-dark p-2 display-inline-block text-primary">
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
-        <UserProfile />
 
         {userParam && (
           <div>
@@ -122,7 +121,10 @@ const Profile = props => {
         (<button className="btn ml-auto" onClick={handleRemoveClick}>
             Remove Friend
           </button>))} */}
-      </div>
+      </Grid>
+      <Grid item xs={12}>
+        <UserProfile />
+      </Grid>
       <Grid
         container
         direction="row"
