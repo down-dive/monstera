@@ -1,0 +1,14 @@
+.welcome {
+    color:#05870e;
+    background-color: black;
+    text-align: center;
+}
+
+.logo {
+    margin: 0 0 1.5rem;
+    width: 10rem;
+    height: 10rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
