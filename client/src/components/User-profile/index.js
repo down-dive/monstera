@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import UserImage from "../user-image";
+import UserImage from "../User-image";
 import UserInfo from "../User-info";
 
 const useStyles = makeStyles(theme => ({

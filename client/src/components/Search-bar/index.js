@@ -24,9 +24,6 @@ import { useQuery } from "@apollo/react-hooks";
 import { QUERY_ALL_USERS } from "../../utils/queries";
 import Profile from '../../pages/Profile';
 
-import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { VariableSizeList } from 'react-window';
