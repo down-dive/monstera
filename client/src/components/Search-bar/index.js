@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -23,7 +23,15 @@ import { useQuery } from "@apollo/react-hooks";
 import { QUERY_ALL_USERS } from "../../utils/queries";
 import Profile from '../../pages/Profile';
 
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import { VariableSizeList } from 'react-window';
+import { useHistory } from "react-router-dom";
+
+import { Link, Redirect } from "react-router-dom";
 
 import Auth from "../../utils/auth";
 
@@ -179,23 +187,39 @@ export default function PersistentDrawerLeft(props) {
     setOpen(false);
   };
 
+  
   const [searchField, setSearchField] = useState('');
-  const {loading, error, data} = useQuery(QUERY_ALL_USERS);
+  const [searched, setSearched] = useState('');
+  const { loading, error, data } = useQuery(QUERY_ALL_USERS);
   const handleChange = async (e) => {
     setSearchField(e.target.value);
     // console.log(data);
     try {
-      const searched = data?.users.filter(user => (
+      setSearched = data?.users.filter(user => (
         user.username.toLowerCase().includes(searchField.toLowerCase())
       ));
-    console.log(searched[0].username)
-    // return <Link to={`/profile/${searched[0].username}`} />
+      console.log(searched[0].username);
+      console.log(searched);
+      // handleSubmit(searched);
+      // return <Link to={`/profile/${searched[0].username}`} />
 
     } catch (e) {
       console.error(e);
     }
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(searched[0].username);
+    var user = searched[0].username;
+    return <Redirect to={`/profile/${user}`} />
+  }
+
+  // let history = useHistory(data?.username);
+  // const handleClick = async(e) => {
+  
+  //   history.push(`/profile/${data.username}`);
+  // }
   return (
     <div className={classes.root}>
       <AppBar
@@ -221,7 +245,8 @@ export default function PersistentDrawerLeft(props) {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
+            <form onSubmit={handleSubmit}>
+              <InputBase
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
@@ -229,7 +254,17 @@ export default function PersistentDrawerLeft(props) {
               }}
               inputProps={{ "aria-label": "search" }}
               onChange= {handleChange}
+              
             />
+            </form>
+              {/* <Autocomplete
+                id="combo-box-demo"
+                options={data}
+                getOptionLabel={(data) => data.username}
+                style={{ width: 300 }}
+                renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
+                renderOption={(data) => <Typography onClick={handleClick} noWrap>{data.username}</Typography>}
+              /> */}
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
