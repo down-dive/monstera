@@ -215,11 +215,12 @@ export default function PersistentDrawerLeft(props) {
     return <Redirect to={`/profile/${user}`} />
   }
 
-  // let history = useHistory(data?.username);
-  // const handleClick = async(e) => {
+  let history = useHistory(data?.username);
+  const handleInputChange = async(e, value) => {
   
-  //   history.push(`/profile/${data.username}`);
-  // }
+    history.push(`/profile/${value}`);
+  }
+
   return (
     <div className={classes.root}>
       <AppBar
@@ -258,6 +259,7 @@ export default function PersistentDrawerLeft(props) {
                   }}
                 />
               )}
+              onInputChange={handleInputChange}
             />
             {/* <InputBase
               placeholder="Search…"
