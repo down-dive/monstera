@@ -4,6 +4,8 @@ import TextField from "@material-ui/core/TextField";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { green } from '@material-ui/core/colors';
 
+// import CustomButton from "../custom-button";
+
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_REPLIES } from "../../utils/mutations";
 
@@ -111,7 +113,7 @@ const ReplyForm = (props) => {
           onChange={handleChange}
         ></CssTextField>
 
-        <ColorButton
+<ColorButton
           variant="contained"
           color="green"
           style={{ margin: 10 }}
