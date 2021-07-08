@@ -22,12 +22,9 @@ const UserInfo = () => {
 
   return (
     <div className={classes.root}>
-      <Grid className='option' container spacing={2}>
+      <Grid className="card" container spacing={2}>
         <Grid item xs={12}>
           You are awesome and you know it!!!
-        </Grid>
-        <Grid item xs={12}>
-          <FriendList />
         </Grid>
       </Grid>
     </div>
