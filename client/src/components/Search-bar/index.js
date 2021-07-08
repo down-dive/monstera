@@ -15,10 +15,11 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SearchIcon from "@material-ui/icons/Search";
-import InputBase from "@material-ui/core/InputBase";
+import InputBase from "@material-ui/core/InputBase"
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@material-ui/core/TextField";
 import NotificationBell from "../NotificationBell";
 import DangerButton from "../../components/DangerButton";
-
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_ALL_USERS } from "../../utils/queries";
 import Profile from '../../pages/Profile';
@@ -224,15 +225,28 @@ export default function PersistentDrawerLeft(props) {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
+            <Autocomplete
+              id="search-bar"
+              options={data ? data?.users.map((user) => user.username) : []}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  placeholder="Search..."
+                  classes={{
+                    root: classes.inputInput
+                  }}
+                />
+              )}
+            />
+            {/* <InputBase
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
-              onChange= {handleChange}
-            />
+              onChange={handleChange}
+            /> */}
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
