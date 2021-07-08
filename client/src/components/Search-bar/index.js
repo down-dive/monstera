@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -15,14 +15,14 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SearchIcon from "@material-ui/icons/Search";
-import InputBase from "@material-ui/core/InputBase"
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
 import NotificationBell from "../NotificationBell";
 import DangerButton from "../../components/DangerButton";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_ALL_USERS } from "../../utils/queries";
-import Profile from '../../pages/Profile';
+
+import { useHistory } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
@@ -153,14 +153,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-// function HomeIcon(props) {
-//   return (
-//     <SvgIcon {...props}>
-//       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-//     </SvgIcon>
-//   );
-// }
-
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
@@ -182,21 +174,13 @@ export default function PersistentDrawerLeft(props) {
     setOpen(false);
   };
 
-  const [searchField, setSearchField] = useState('');
-  const {loading, error, data} = useQuery(QUERY_ALL_USERS);
-  const handleChange = async (e) => {
-    setSearchField(e.target.value);
-    // console.log(data);
-    try {
-      const searched = data?.users.filter(user => (
-        user.username.toLowerCase().includes(searchField.toLowerCase())
-      ));
-    console.log(searched[0].username)
-    // return <Link to={`/profile/${searched[0].username}`} />
+  // handle searching username
+  const { loading, error, data } = useQuery(QUERY_ALL_USERS);
 
-    } catch (e) {
-      console.error(e);
-    }
+  let history = useHistory(data?.username);
+  const handleInputChange = async(e, value) => {
+  
+    history.push(`/profile/${value}`);
   }
 
   return (
@@ -237,16 +221,8 @@ export default function PersistentDrawerLeft(props) {
                   }}
                 />
               )}
+              onInputChange={handleInputChange}
             />
-            {/* <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-              onChange={handleChange}
-            /> */}
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
