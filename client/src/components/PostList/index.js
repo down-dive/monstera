@@ -8,12 +8,12 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ReplyForm from "../ReplyForm";
 import { PossibleTypeExtensionsRule } from "graphql";
-import ReplyList from "../ReplyList"
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-    
+
+    margin: 10,
   },
   // bullet: {
   //   display: 'inline-block',
@@ -21,8 +21,16 @@ const useStyles = makeStyles({
   //   transform: 'scale(0.8)',
   // },
   title: {
-    fontSize: 18,
+    fontSize: 16,
   },
+  text: {
+    fontSize: 20,
+    textAlign: "center",
+  },
+  reply: {
+    justifyContent: "center",
+  },
+
   pos: {
     marginBottom: 12,
   },
@@ -34,10 +42,10 @@ const PostList = ({ posts }) => {
     return <h3>No Posts Yet</h3>;
   }
 
-  console.log(posts)
+  console.log(posts);
 
   return (
-    <div className={classes.root} >
+    <div className={classes.root}>
       {posts &&
         posts.slice(0, 5).map(post => (
           <CardContent key={post._id} className="card mb-3">
@@ -55,13 +63,36 @@ const PostList = ({ posts }) => {
               </Link>{" "}
               post on {post.createdAt}
             </Typography>
-            <Typography className="card-body">
-              <span className="text-light">{post.postContent}</span>
+            <Typography className={classes.text}>
+              <p className="card-body" style={{ overflowWrap: "anywhere" }}>
+                {post.postContent}
+              </p>
             </Typography>
-            <CardActions>
-              <ReplyForm  post_id={post._id}/>
+            <CardActions className={classes.reply}>
+              <ReplyForm post_id={post._id} />
             </CardActions>
-            <ReplyList />
+
+            <div className="card-body">
+              {post.replies &&
+                post.replies.map(reply => (
+                  <p
+                    className=""
+                    key={reply._id}
+                    style={{ overflowWrap: "anywhere" }}
+                  >
+                    {reply.replyContent} -{" "}
+                    <Link
+                      className={classes.title}
+                      style={{ color: "grey" }}
+                      to={`/profile/${reply.username}`}
+                      
+                    >
+                      <div style={{ fontWeight: 700, fontSize: 19, color: "var(--primary)" }}> {reply.username}</div> on {reply.createdAt}
+                    </Link>
+                  </p>
+                ))}
+            </div>
+
             <Typography>Replies: {post.replyCount}</Typography>
           </CardContent>
         ))}
