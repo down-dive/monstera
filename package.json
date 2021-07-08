@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server/server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.59",
