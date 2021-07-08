@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 
 import UserProfile from "../components/User-profile";
-import ProfileImage from "../components/ProfileImage";
 import PostForm from "../components/PostForm";
 import PostList from "../components/PostList";
 import FriendList from "../components/Friends-list";
