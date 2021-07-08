@@ -8,10 +8,12 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ReplyForm from "../ReplyForm";
 import { PossibleTypeExtensionsRule } from "graphql";
+import ReplyList from "../ReplyList"
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    
   },
   // bullet: {
   //   display: 'inline-block',
@@ -59,6 +61,7 @@ const PostList = ({ posts }) => {
             <CardActions>
               <ReplyForm  post_id={post._id}/>
             </CardActions>
+            <ReplyList />
             <Typography>Replies: {post.replyCount}</Typography>
           </CardContent>
         ))}

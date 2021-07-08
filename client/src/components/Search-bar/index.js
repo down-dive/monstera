@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
     "& > svg": {
       margin: theme.spacing(2),
     },
+    
   },
   grow: {
     flexGrow: 1,
@@ -57,6 +58,7 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
+      backgroundColor: "white"
     }),
   },
   search: {
@@ -223,6 +225,7 @@ export default function PersistentDrawerLeft(props) {
   return (
     <div className={classes.root}>
       <AppBar
+      style={{ background: '#04752f' }}
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -239,7 +242,7 @@ export default function PersistentDrawerLeft(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            MONSTREA
+            MONSTERA
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

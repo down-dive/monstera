@@ -1,5 +1,5 @@
 :root {
-  --primary: #19c98e;
+  --primary: #29A74A;
   --secondary: #5c73f5;
   --tertiary: #86eecf;
   --quatrinary: #b8d8b9;
@@ -31,7 +31,8 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: var(--dark)
+  /* background-color: var(--dark) */
+  background-image: url(../src/images/background2.png);
 }
 
 h1,
@@ -107,6 +108,7 @@ nav a:hover {
   font-size: 2.5rem;
 }
 
+
 .btn {
   font-size: 1.3rem;
   text-decoration: none;
@@ -134,7 +136,7 @@ nav a:hover {
   margin: 0 0 20px 0;
   border: 3px solid var(--light);
   border-radius: var(--border-radius);
-  /* background-color: var(--light); */
+  background-color: var(--dark);
   color: var(--light);
 }
 
@@ -179,8 +181,9 @@ footer {
   padding: 0.75rem;
   margin: 0.2rem 0;
   font-size: 1.2rem;
-  border: 2px solid var(--dark);
+  border: 2px solid var(--light);
   border-radius: var(--border-radius);
+  background-color: var(--dark);
 }
 
 [type='radio']:checked,
