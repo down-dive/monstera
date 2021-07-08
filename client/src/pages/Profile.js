@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 
-import UserProfile from "../components/User-profile";
-import ProfileImage from "../components/ProfileImage";
+// import UserProfile from "../components/User-profile";
+import UserImage from "../components/User-image";
 import PostForm from "../components/PostForm";
 import PostList from "../components/PostList";
 import FriendList from "../components/Friends-list";
@@ -122,13 +122,13 @@ const Profile = props => {
             Remove Friend
           </button>))} */}
       </Grid>
-      <Grid item xs={12}>
-        <UserProfile />
+      <Grid>
+        
       </Grid>
       <Grid
         container
         direction="row"
-        justifyContent="flex-start"
+        justifyContent="center"
         alignItems="flex-start"
         spacing={4}
       >
@@ -140,6 +140,7 @@ const Profile = props => {
           />
         </Grid>
         <Grid item xs={6}>
+          <UserImage />
           {!userParam && <PostForm />}
 
           <div className="col-6 mb-3 col-lg-8">

@@ -22,10 +22,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-    margin: 10,
+    // padding: theme.spacing(2),
+    // textAlign: "center",
+    // color: theme.palette.text.secondary,
+    // margin: 10,
   },
 }));
 
@@ -47,8 +47,9 @@ const Homepage = props => {
         spacing={4}
       >
         <Grid container justify="center" item xs={3}>
+          <div  className="mb-0">
           <DangerButton />
-
+</div>
           {/* <Paper className={classes.paper}>local resources/links</Paper> */}
 
           {loggedIn && userData ? (
@@ -81,7 +82,7 @@ const Homepage = props => {
             </div>
           </Grid>
         )}
-        <Grid item xs={4} className="card mb-3">
+        <Grid item xs={4} className="">
           <Resources />
         </Grid>
       </Grid>

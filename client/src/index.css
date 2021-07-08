@@ -134,6 +134,13 @@ nav a:hover {
 .btn-inline {
   display: inline;
 }
+.user-img {
+  margin: 0 0 1.5rem;
+  border: solid;
+  border-color: var(--light);
+  border-radius: var(--border-radius);
+}
+
 
 /* CARDS */
 .card {
@@ -349,7 +356,7 @@ code {
 /* Margin-bottom */
 
 .mb-0 {
-  margin-bottom: 0;
+  margin-bottom: 5rem;
 }
 
 .mb-1 {
