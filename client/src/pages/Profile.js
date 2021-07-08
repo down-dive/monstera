@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 
-<<<<<<< HEAD
-import PostForm from '../components/PostForm';
-import PostList from '../components/PostList';
-import FriendList from '../components/Friends-list';
-import UserProfile from '../components/User-profile';
-=======
 import UserProfile from "../components/User-profile";
 import ProfileImage from "../components/ProfileImage";
 import PostForm from "../components/PostForm";
 import PostList from "../components/PostList";
 import FriendList from "../components/Friends-list";
 import Button from "@material-ui/core/Button";
->>>>>>> d99e3dfac909afd96f0ce92bf1e5130759783b9b
+import Grid from '@material-ui/core/Grid';
 
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -87,15 +81,9 @@ const Profile = props => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-=======
       <Grid container item xs={12}>
         <h2 className="bg-dark p-2 display-inline-block text-primary">
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
->>>>>>> d99e3dfac909afd96f0ce92bf1e5130759783b9b
         </h2>
 
         {userParam && (
@@ -119,16 +107,6 @@ const Profile = props => {
         (<button className="btn ml-auto" onClick={handleRemoveClick}>
             Remove Friend
           </button>))} */}
-<<<<<<< HEAD
-      </div>
-
-      <div className="flex-row justify-space-between mb-3">
-        <div className="col-12 mb-3 col-lg-8">
-          <PostList posts={user.posts} title={`${user.username}'s posts...`} />
-        </div>
-
-        <div className="col-12 col-lg-3 mb-3">
-=======
       </Grid>
       <Grid item xs={12}>
         <UserProfile />
@@ -141,14 +119,13 @@ const Profile = props => {
         spacing={4}
       >
         <Grid item xs={3}>
->>>>>>> d99e3dfac909afd96f0ce92bf1e5130759783b9b
           <FriendList
             username={user.username}
             friendCount={user.friendCount}
             friends={user.friends}
           />
-        </div>
-      </div>
+        </Grid>
+      </Grid>
       <div className="mb-3">{!userParam && <PostForm />}</div>
     </div>
   );
