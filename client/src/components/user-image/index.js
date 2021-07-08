@@ -6,11 +6,11 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
+    // display: "flex",
     "& > *": {
-      // margin: theme.spacing(1),
+      // margin:
     },
-    justify:"center",
+    // justify:"center",
   },
   small: {
     width: theme.spacing(3),
@@ -34,9 +34,7 @@ const UserImage = () => {
   const classes = useStyles();
 
   return (
-    <Grid item className="card">
-    <img className={classes.root} src="https://picsum.photos/200/300" alt="random view image" />
-  </Grid>
+    <img className="user-img" src="https://picsum.photos/id/237/200/300" alt="random view image" />
   );
 };
 

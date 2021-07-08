@@ -1,11 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import UserProfile from "../components/User-profile";
+// import UserProfile from "../components/User-profile";
+import UserImage from "../components/User-image";
 import PostForm from "../components/PostForm";
 import FriendList from "../components/Friends-list";
 import Grid from '@material-ui/core/Grid';
-
+import PostList from "../components/PostList"
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
@@ -104,13 +105,13 @@ const Profile = props => {
             Remove Friend
           </button>))} */}
       </Grid>
-      <Grid item xs={12}>
-        <UserProfile />
+      <Grid>
+        
       </Grid>
       <Grid
         container
         direction="row"
-        justifyContent="flex-start"
+        justifyContent="center"
         alignItems="flex-start"
         spacing={4}
       >
@@ -121,8 +122,20 @@ const Profile = props => {
             friends={user.friends}
           />
         </Grid>
+        <Grid item xs={6}>
+          <UserImage />
+          {!userParam && <PostForm />}
+
+          <div className="col-6 mb-3 col-lg-8">
+            <PostList
+              posts={user.posts}
+              title={`${user.username}'s posts...`}
+            />
+          </div>
+          
+        </Grid>
       </Grid>
-      <div className="mb-3">{!userParam && <PostForm />}</div>
+      
     </div>
   );
 };
