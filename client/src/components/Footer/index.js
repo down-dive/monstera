@@ -75,9 +75,6 @@ export default function BottomAppBar(props) {
         <Toolbar className={classes.customizeToolbar}>
           <footer>
             <div className={classes.root}>
-              <Grid item xs={12}>
-                Made by Monstera Team ♡
-              </Grid>
               <Grid container spacing={1}>
                 <Grid item xs={3}>
                   <Grid container spacing={1}>
