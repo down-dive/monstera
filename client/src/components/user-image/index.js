@@ -35,7 +35,7 @@ const UserImage = () => {
 
   return (
     <Grid item className="card">
-    <img className={classes.root} src="https://picsum.photos/id/237/200/300" alt="random view image" />
+    <img className={classes.root} src="https://picsum.photos/200/300" alt="random view image" />
   </Grid>
   );
 };
