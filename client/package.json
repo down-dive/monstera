@@ -1,5 +1,5 @@
 {
-  "name": "domestic-violence-prevention-social-app",
+  "name": "mern-client",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
