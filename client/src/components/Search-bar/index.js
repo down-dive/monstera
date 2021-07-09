@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-// import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
@@ -175,7 +174,7 @@ export default function PersistentDrawerLeft(props) {
   };
 
   // handle searching username
-  const { loading, error, data } = useQuery(QUERY_ALL_USERS);
+  const { data } = useQuery(QUERY_ALL_USERS);
 
   let history = useHistory(data?.username);
   const handleInputChange = async(e, value) => {

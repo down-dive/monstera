@@ -1,8 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-// import UserProfile from "../components/User-profile";
-import UserImage from "../components/User-image";
 import PostForm from "../components/PostForm";
 import FriendList from "../components/Friends-list";
 import Grid from "@material-ui/core/Grid";
@@ -11,7 +9,7 @@ import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import { ADD_FRIEND, REMOVE_FRIEND } from "../utils/mutations";
 import { green } from "@material-ui/core/colors";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 
 const ColorButton = withStyles(theme => ({
   root: {
@@ -92,14 +90,6 @@ const Profile = props => {
   return (
     <div>
       <Grid container item xs={12}>
-        {/* {userParam && (!isFriend ? (
-          <button className="btn ml-auto" onClick={handleClick}>
-            Add Friend
-          </button>
-        ):
-        (<button className="btn ml-auto" onClick={handleRemoveClick}>
-            Remove Friend
-          </button>))} */}
       </Grid>
       <Grid></Grid>
       <Grid
@@ -144,7 +134,6 @@ const Profile = props => {
               </div>
             )}
           </Grid>
-          {/* <UserImage /> */}
           {!userParam && <PostForm />}
 
           <div className="col-6 mb-3 col-lg-8">

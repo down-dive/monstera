@@ -1,33 +1,14 @@
-// import { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-
 import PostForm from "../components/PostForm";
 import DangerButton from "../components/DangerButton";
 import PostList from "../components/PostList";
-
 import FriendList from "../components/Friends-list";
 import NotificationList from "../components/NotificationList";
-import ResourceCard from "../components/ResourceCard";
-import resource from "../mainResources.json";
 import Resources from "../components/Resources";
-
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_POSTS, QUERY_ME_BASIC } from "../utils/queries";
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    // padding: theme.spacing(2),
-    // textAlign: "center",
-    // color: theme.palette.text.secondary,
-    // margin: 10,
-  },
-}));
 
 const Homepage = props => {
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -35,7 +16,6 @@ const Homepage = props => {
   const posts = data?.posts || [];
 
   const loggedIn = Auth.loggedIn();
-  const classes = useStyles();
 
   return (
     <main>
@@ -47,13 +27,11 @@ const Homepage = props => {
         spacing={4}
       >
         <Grid container justify="center" item xs={3}>
-          <div  className="mb-0">
-          <DangerButton />
-</div>
-          {/* <Paper className={classes.paper}>local resources/links</Paper> */}
-
+          <div className="mb-0">
+            <DangerButton />
+          </div>
           {loggedIn && userData ? (
-            <div container className={classes.paper}>
+            <div container>
               <FriendList
                 username={userData.me.username}
                 friendCount={userData.me.friendCount}
@@ -65,7 +43,7 @@ const Homepage = props => {
         {loggedIn && (
           <Grid item xs={5}>
             {" "}
-            <div className={classes.paper}>
+            <div>
               <PostForm />
             </div>
             {props.showNotifications && (
@@ -82,7 +60,7 @@ const Homepage = props => {
             </div>
           </Grid>
         )}
-        <Grid item xs={4} className="">
+        <Grid item xs={4}>
           <Resources />
         </Grid>
       </Grid>
