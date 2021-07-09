@@ -1,10 +1,24 @@
-// import './styles.css'
+import "./css/style.css";
 
 const Welcome = () => {
-    return (
-        
-        <div className='welcome'>Lorem, Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-    );
-  };
-  
-  export default Welcome;
+  return (
+    <>
+      <img
+        className="logo"
+        src="../img/monstera_logo.png"
+        alt="monstera logo"
+      />
+      <div className="welcome">
+        <div>Welcome to Monstera Application! </div>
+        <p>
+          It is always important to water your plants and stay healthy. This
+          application provides you a safe and healthy environment in which you
+          can grow your plants and feel empowered. Remember safety doesn't
+          happen by accident. Be safe around your plants!
+        </p>
+      </div>
+    </>
+  );
+};
+
+export default Welcome;
