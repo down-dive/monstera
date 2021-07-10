@@ -12,6 +12,7 @@ This app is to help prevent domestic violence, It allows users to login and be a
   * [License](#license)
   * [Screeenshots](#screenshots)
   * [Available Scripts](#available-scripts)
+  * [Contributors](#contributors)
 
 ## Technologies used
 
@@ -77,4 +78,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Contributors
+
+* [Shirin Shahram](https://github.com/sshahram)
+* [Zhypara Abdieva](https://github.com/jypara-git)
+* [Yev Terlyuk](https://github.com/down-dive)
+* [Kevin Lawrence](https://github.com/kingkevin05)
