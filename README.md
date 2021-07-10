@@ -3,18 +3,18 @@
 
 ## Description
 
-This app is to help prevent domestic violence, It allows users to login and discuss issues that they are facing. Users can add friends and share their live location with them in case of emergency situation where they need help and they are not able to call 911 directly.
+This app is to help prevent domestic violence, It allows users to login and to discuss the issues that they are facing. Users can add friends and share their live location with them in case of emergency situation where they need help and they are not able to call 911 directly.
 
  ## Table of Contents
 
-  * [Technologies used](#technologies-used)
-  * [Deployed application](#deployed-application)
+  * [Technologies Used](#technologies-used)
+  * [Deployed Application](#deployed-application)
   * [License](#license)
   * [Screeenshots](#screenshots)
   * [Available Scripts](#available-scripts)
   * [Contributors](#contributors)
 
-## Technologies used
+## Technologies Used
 
 - Material UI
 - Heroku
@@ -23,7 +23,7 @@ This app is to help prevent domestic violence, It allows users to login and disc
 - MongoDB
 - GraphQL
 
- ## Deployed application
+ ## Deployed Application
  
 To see the deployed application [click here](https://monstera2.herokuapp.com/)
 
