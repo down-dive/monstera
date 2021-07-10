@@ -1,9 +1,12 @@
 # Monstera
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Description
 
 This app is to help prevent domestic violence, It allows users to login and be able to discuss issues that they are facing. Users can add friends and share their live location with them in case of emergency situation where they need help and they are not able to call 911 directly.
+
  ## Table of Contents
+
   * [Technologies used](#technologies-used)
   * [Deployed application](#deployed-application)
   * [License](#license)
@@ -11,19 +14,42 @@ This app is to help prevent domestic violence, It allows users to login and be a
   * [Available Scripts](#available-scripts)
 
 ## Technologies used
+
 - Material UI
 - Heroku
 - React
 - Google API
 - MongoDB
 - GraphQL
+
  ## Deployed application
  
-  To see the deployed application [click here](https://monstera2.herokuapp.com/)
+To see the deployed application [click here](https://monstera2.herokuapp.com/)
+
  ## License
-  This project is licensed under the MIT license.
+
+This project is licensed under the MIT license.
 
 ## Screenshots
+
+Please see below screenshots for different sections of this application:
+
+* Welcome Page:
+
+![alt=welcome](./client/src/images/welcome.JPG)
+
+* Login/Signup Page
+
+![alt=login](./client/src/images/login.JPG)
+
+* Homepage
+
+![alt=homepage](./client/src/images/homepage.JPG)
+
+* Profile Page
+
+![alt=profile](./client/src/images/profile.JPG)
+
 ## Available Scripts
 
 In the project directory, you can run:
