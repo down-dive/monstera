@@ -3,7 +3,7 @@
 
 ## Description
 
-This app is to help prevent domestic violence, It allows users to login and to discuss the issues that they are facing. Users can add friends and share their live location with them in case of emergency situation where they need help and they are not able to call 911 directly.
+This app is to help prevent domestic violence, It allows users to login and to discuss the issues that they are facing. Users can add friends and share their live location with them in case of emergency situation when they need help and they are not able to call 911 directly.
 
  ## Table of Contents
 
