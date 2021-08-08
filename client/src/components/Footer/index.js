@@ -9,7 +9,6 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import PropTypes from 'prop-types';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
-
 import './styles.css'
 
 
