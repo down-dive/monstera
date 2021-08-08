@@ -113,9 +113,6 @@ export default function BottomAppBar(props) {
                     <Grid item xs={12}>
                       Kevin Lawrence
                     </Grid>
-                    {/* <Grid item xs={12}>
-                    <img src="https://ibb.co/ynHW3vj" alt='random view image' />
-                    </Grid> */}
                     <Grid item xs={12}>
                       <Link href="https://github.com/kingkevin05" >
                       <GitHubIcon className='GitHubIcon' />
