@@ -5,7 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Grid from "@material-ui/core/Grid";
 import CardMedia from '@material-ui/core/CardMedia';
 import Link from '@material-ui/core/Link';
-import Icon from '@material-ui/core/Icon';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
