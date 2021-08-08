@@ -100,7 +100,6 @@ export default function BottomAppBar(props) {
                     <Grid item xs={12}>
                       <Link href="https://github.com/jypara-git" >
                       <GitHubIcon className='GitHubIcon' />
-
                       </Link>
                       <Link href="https://www.linkedin.com/in/zhypara-abdieva-907746203/" >
                       <LinkedInIcon className="LinkedInIcon" />
