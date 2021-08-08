@@ -127,7 +127,6 @@ export default function BottomAppBar(props) {
                     <Grid item xs={12}>
                       Yevgeniya Terlyuk
                     </Grid>
-
                     <Grid item xs={12}>
                       <Link href="https://github.com/down-dive" >
                       <GitHubIcon className='GitHubIcon' />
