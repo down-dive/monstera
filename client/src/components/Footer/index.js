@@ -97,9 +97,6 @@ export default function BottomAppBar(props) {
                     <Grid item xs={12}>
                       Zhypara Abdieva
                     </Grid>
-                    {/* <Grid item xs={12}>
-                    <img src="https://ibb.co/ynHW3vj" alt='random view image' />
-                    </Grid> */}
                     <Grid item xs={12}>
                       <Link href="https://github.com/jypara-git" >
                       <GitHubIcon className='GitHubIcon' />
