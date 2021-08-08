@@ -133,7 +133,6 @@ export default function BottomAppBar(props) {
                       </Link>
                       <Link href="https://www.linkedin.com/in/yevgeniya-terluyk-034013179/" >
                       <LinkedInIcon className="LinkedInIcon" />
-
                       </Link>
                     </Grid>
                   </Grid>
