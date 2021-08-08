@@ -81,9 +81,6 @@ export default function BottomAppBar(props) {
                     <Grid item xs={12}>
                       Shirin Shahram
                     </Grid>
-                    {/* <Grid item xs={12}>
-                    <img src="../../assets/Shirin.png" alt='random view image' />
-                    </Grid> */}
                     <Grid item xs={12}>
                       <Link href="https://github.com/sshahram" >
                         <GitHubIcon className='GitHubIcon' />
