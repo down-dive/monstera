@@ -33,6 +33,9 @@ body {
   color: var(--dark);
   /* background-color: var(--dark) */
   background-image: url(../src/images/background2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1,
