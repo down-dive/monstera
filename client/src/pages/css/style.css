@@ -1,7 +1,16 @@
 .welcome {
-    color:#05870e;
-    background-color: black;
+    font: italic 1.2em "Fira Sans", serif;
+    color:#ffffff;
+    /* background-color: black; */
+    font-size: 3rem;
     text-align: center;
+    
+   
+}
+p {
+    font-size: 2rem;
+    margin: 1.5rem 212px 11rem;
+    background-color: #222222;
 }
 
 .logo {
@@ -12,3 +21,32 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  /* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+body {
+    margin: 6rem 0rem;
+    
+}
+.welcome {
+    font-size: 35px;
+    
+}
+
+p {
+  margin: 1.5rem 0;
+  font-size: 22px;
+  
+}
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}

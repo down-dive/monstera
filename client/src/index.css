@@ -941,3 +941,12 @@ code {
 .col-12 {
   flex: 0 0 100%;
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+
+}
+

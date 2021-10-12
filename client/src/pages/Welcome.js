@@ -3,13 +3,9 @@ import "./css/style.css";
 const Welcome = () => {
   return (
     <>
-      <img
-        className="logo"
-        src="../img/monstera_logo.png"
-        alt="monstera logo"
-      />
+      
       <div className="welcome">
-        <div>Welcome to Monstera Application! </div>
+        <div>Welcome to Monstera! </div>
         <p>
           It is always important to water your plants and stay healthy. This
           application provides you a safe and healthy environment in which you
@@ -17,6 +13,13 @@ const Welcome = () => {
           happen by accident. Be safe around your plants!
         </p>
       </div>
+      <a href="/signin">
+        <img
+          className="logo"
+          src="../img/monstera_logo.png"
+          alt="monstera logo"
+        />
+      </a>
     </>
   );
 };
