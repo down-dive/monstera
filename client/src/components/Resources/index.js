@@ -9,7 +9,7 @@ const Resources = () => {
             {
                 resource.map(resource => {
                     return (
-                        <Grid item xs={12} key={resource.id}>
+                        <Grid item xs={0} md={12} key={resource.id}>
                             <ResourceCard
                                 name={resource.name}
                                 description={resource.description}

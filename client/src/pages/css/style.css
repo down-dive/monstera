@@ -7,7 +7,7 @@
     
    
 }
-p {
+.welcome p {
     font-size: 2rem;
     margin: 1.5rem 212px 11rem;
     background-color: #222222;
@@ -22,11 +22,11 @@ p {
     margin-right: auto;
 }
 
-.card {
+/* .card {
     
     margin: 1rem;
     margin-top: 10rem;
-}
+} */
 
 .signPage {
     /* margin: 0; */
@@ -42,11 +42,25 @@ and (max-device-width : 480px) {
     margin: 0;
 }
 
+div {
+    max-width: none;
+}
+
+.p-2 {
+    
+}
+
 .card {
     
     margin: 1rem;
-    margin-top: 6rem;
+    /* margin-top: 6rem; */
+    width: 19rem;
 }
+.container {
+    max-width: none;
+
+}
+
 body {
     margin: 6rem 0rem;
     
@@ -56,7 +70,7 @@ body {
     
 }
 
-p {
+.welcome p {
   margin: 1.5rem 0;
   font-size: 22px;
   

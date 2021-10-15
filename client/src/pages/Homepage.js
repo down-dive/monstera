@@ -9,6 +9,7 @@ import Resources from "../components/Resources";
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_POSTS, QUERY_ME_BASIC } from "../utils/queries";
+import "./css/style.css"
 
 const Homepage = props => {
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -26,7 +27,7 @@ const Homepage = props => {
         alignItems="flex-start"
         spacing={4}
       >
-        <Grid container justify="center" item xs={3}>
+        <Grid container justify="center" item xs={0} md={3}>
           <div className="mb-0">
             <DangerButton />
           </div>
@@ -41,7 +42,7 @@ const Homepage = props => {
           ) : null}
         </Grid>
         {loggedIn && (
-          <Grid item xs={5}>
+          <Grid item xs={0} md={5}>
             {" "}
             <div>
               <PostForm />
@@ -60,7 +61,7 @@ const Homepage = props => {
             </div>
           </Grid>
         )}
-        <Grid item xs={4}>
+        <Grid item xs={0} md={4}>
           <Resources />
         </Grid>
       </Grid>

@@ -10,6 +10,7 @@ import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import { ADD_FRIEND, REMOVE_FRIEND } from "../utils/mutations";
 import { green } from "@material-ui/core/colors";
 import { withStyles } from "@material-ui/core/styles";
+import "./css/style.css";
 
 const ColorButton = withStyles(theme => ({
   root: {
@@ -89,59 +90,59 @@ const Profile = props => {
 
   return (
     <div>
-      <Grid container item xs={12}>
-      </Grid>
-      <Grid></Grid>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="flex-start"
-        spacing={4}
-      >
-        <Grid style={{ margin: "8rem 0 0" }} item xs={3}>
-          <FriendList
-            username={user.username}
-            friendCount={user.friendCount}
-            friends={user.friends}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <Grid container item justify="space-around" alignItems="flex-start">
-            <h2 className="bg-dark p-2 display-inline-block text-primary">
-              Viewing {userParam ? `${user.username}'s` : "your"} profile.
-            </h2>
-            {userParam && (
-              <div item>
-                <ColorButton
-                  variant="contained"
-                  color="green"
-                  style={{ margin: 10 }}
-                  className="col-6 col-md-3"
-                  onClick={handleClick}
-                >
-                  Add Friend
-                </ColorButton>
-                <ColorButton
-                  variant="contained"
-                  color="green"
-                  style={{ margin: 10 }}
-                  className="col-6 col-md-3"
-                  onClick={handleRemoveClick}
-                >
-                  Remove Friend
-                </ColorButton>
-              </div>
-            )}
-          </Grid>
-          {!userParam && <PostForm />}
-
-          <div className="col-6 mb-3 col-lg-8">
-            <PostList
-              posts={user.posts}
-              title={`${user.username}'s posts...`}
+      <Grid container item xs={0} md={12}>
+        {/* <Grid></Grid> */}
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="flex-start"
+          spacing={4}
+        >
+          <Grid style={{ margin: "8rem 0 0" }} item xs={0} md={3}>
+            <FriendList
+              username={user.username}
+              friendCount={user.friendCount}
+              friends={user.friends}
             />
-          </div>
+          </Grid>
+          <Grid item xs={0} md={6}>
+            <Grid container item justify="space-around" alignItems="flex-start">
+              <h2 className="p-2 display-inline-block text-primary">
+                Viewing {userParam ? `${user.username}'s` : "your"} profile.
+              </h2>
+              {userParam && (
+                <div item>
+                  <ColorButton
+                    variant="contained"
+                    color="green"
+                    style={{ margin: 10 }}
+                    className="col-6 col-md-3"
+                    onClick={handleClick}
+                  >
+                    Add Friend
+                  </ColorButton>
+                  <ColorButton
+                    variant="contained"
+                    color="green"
+                    style={{ margin: 10 }}
+                    className="col-6 col-md-3"
+                    onClick={handleRemoveClick}
+                  >
+                    Remove Friend
+                  </ColorButton>
+                </div>
+              )}
+            </Grid>
+            {!userParam && <PostForm />}
+
+            <div className="col-6 mb-3 col-lg-8">
+              <PostList
+                posts={user.posts}
+                title={`${user.username}'s posts...`}
+              />
+            </div>
+          </Grid>
         </Grid>
       </Grid>
     </div>
