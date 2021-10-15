@@ -11,6 +11,7 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Alert from "@material-ui/lab/Alert";
 import { green } from "@material-ui/core/colors";
+import "./../../pages/css/style.css";
 
 const CssTextField = withStyles({
   root: {
@@ -116,7 +117,7 @@ const Login = props => {
   };
 
   return (
-    <div className="card" style={{ padding: "1.7rem" }}>
+    <div className="card">
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>

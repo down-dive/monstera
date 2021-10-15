@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Alert from "@material-ui/lab/Alert";
-import "./styles.css";
+import "./../../pages/css/style.css";
 import { green } from "@material-ui/core/colors";
 
 const CssTextField = withStyles({

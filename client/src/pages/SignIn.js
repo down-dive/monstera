@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-
+import "./css/style.css";
 import SignIn from "../components/Sign-in";
 import SignUp from "../components/Sign-up";
 
@@ -18,7 +18,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     textAlign: "center",
-    margin: "10rem"
+    
+    // margin: "10rem"
   },
   media: {
     height: 0,
@@ -32,6 +33,7 @@ const useStyles = makeStyles(theme => ({
 const SignInSignUp = () => {
   const classes = useStyles();
   return (
+    <div className= "signPage">
     <div className={classes.root}>
       <Grid
         container
@@ -41,13 +43,14 @@ const SignInSignUp = () => {
         spacing={4}
         xs={12}
       >
-        <Grid item xs={6}>
+        <Grid>
           <SignIn />
         </Grid>
-        <Grid item xs={6}>
+        <Grid>
           <SignUp />
         </Grid>
       </Grid>
+    </div>
     </div>
   );
 };
